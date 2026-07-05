@@ -1,0 +1,1283 @@
+Full name:  5-on-5 stats
+Abbreviation:  General concepts
+Definition:  Teams playing at full strength are generally playing at 5-on-5, meaning five skaters and a goalie versus five skaters and a goalie. Penalties frequently cause teams to play at less than full strength, leading to situations other than 5-on-5. Also note that late-game situations with the goalie pulled do not qualify as 5-on-5, e.g. turning 5-on-5 into 6-on-5 when a skater replaces the goalie on the ice. Many enhanced stats concentrate on 5-on-5 play to compare players under the manpower-neutral circumstances that make up the majority of time in a game.
+
+Full name:  Assists
+Abbreviation:  A
+Definition:  Assists can be awarded to a maximum of two players touching the puck before the goal scorer, provided the opposing team has not controlled the puck between the potential assists and the goal being scored. Unless otherwise specified, assist totals are for all situations (even strength, power play, shorthanded) combined. The last teammate to touch the puck before the goal scorer is awarded a primary assist. The preceding teammate to touch the puck before the first assisting player is awarded a secondary assist. Goals scored without teammates passing or otherwise touching the puck before it gets to the goal scorer are said to be unassisted and no assists are awarded. See primary assists and secondary assists.
+
+Full name:  Assists (5-on-5)
+Abbreviation:  A (5-on-5)
+Definition:  Player's own assists in 5-on-5 situations
+
+Full name:  Assists per 60 minutes (5-on-5)
+Abbreviation:  A/60 (5-on-5)
+Definition:  Player's own assists per 60 minutes in 5-on-5 situations
+
+Full name:  Assists per game played
+Abbreviation:  A/GP
+Definition:  In comparing the assist production of different players, assist totals can be divided by games played e.g. to account for players who have missed games due to injury or who have not spent the entire season in the NHL. However, this adjustment does not account for varying time on ice and varying special teams time. See assists.
+
+Full name:  Bench penalties
+Abbreviation:  Bench
+Definition:  Bench minor penalties are minor penalties assessed to either the coaching staff or the entire team. They include penalties for abuse of officials, delay of game, deliberate illegal substitution, face-off violation, illegal substitution, improper starting lineup, interference from the players or penalty bench, interference with an official, leaving bench at end of period, refusing to start play, stepping onto ice during period (coach), throwing objects onto ice, too many men on the ice, unsportsmanlike conduct, and unsustained request for measurement. Since no specific player is penalized, the coach selects a player to serve the penalty in the penalty box.
+
+Full name:  Birth country
+Abbreviation:  Ctry
+Definition:  A player's nationality may differ from his country of birth. The country listed is the current country that his birth city is in.
+
+Full name:  Blocked shots
+Abbreviation:  BkS
+Definition:  A blocked shot occurs when an opponent's shot attempt is blocked by a skater, with his stick or body. From the shooter's perspective, attempts blocked count toward SAT but not toward USAT. The blocked shot statistic has been recorded by the NHL since 2002-03. See SAT; see USAT.
+
+Full name:  Blocked shots per 60 minutes
+Abbreviation:  BkS/60
+Definition:  Player's average rate of blocked shots per 60 minutes of ice time
+
+Full name:  Blocked shots per game played
+Abbreviation:  BkS/GP
+Definition:  Blocked shots divided by games played
+
+Full name:  Career shootout game-deciding goals
+Abbreviation:  Career GDG
+Definition:  Skater's career game-deciding shootout goals. It can be compared with shootout goals for the season (or another timeframe) on the same report.
+
+Full name:  Career shootout games played
+Abbreviation:  Career SO GP
+Definition:  Number of skater's games played that went to a shootout, for his career. It can be compared with season totals (or another timeframe) on the same report.
+
+Full name:  Career shootout goals
+Abbreviation:  Career SO G
+Definition:  Skater's career shootout goals. It can be compared with shootout goals for the season (or another timeframe) on the same report.
+
+Full name:  Career shootout shooting percentage
+Abbreviation:  Career SO S%
+Definition:  Skater's career shootout goals per shootout shot attempt. It can be compared with shootout shooting percentage for the season (or another timeframe) on the same report.
+
+Full name:  Career shootout shot attempts
+Abbreviation:  Career SO S
+Definition:  Skater's career shootout shot attempts (including missed shots and otherwise failed attempts). It can be compared with shootout shot attempts for the season (or another timeframe) on the same report.
+
+Full name:  Close or close game
+Abbreviation:  General concepts
+Definition:  A close game is defined as a game within a single goal in the first two periods or tied in the third period or overtime. As teams playing from behind tend to take more shots while teams playing with lead tend to take fewer shots, restricting stats like SAT and USAT to close-game situations helps filter out situations that skew shot-based data. The limitation of looking at only close-game situations is a modest reduction in sample size. See SAT%; see USAT%; see USAT% close.
+
+Full name:  Complete game percentage
+Abbreviation:  CG%
+Definition:  Complete games divided by games started
+
+Full name:  Complete games
+Abbreviation:  CG
+Definition:  Goalie's number of games started in games where no other goalie played in the game for the team, meaning the goalie played the complete game (including the shootout, if applicable).
+
+Full name:  Date of birth
+Abbreviation:  DOB
+Definition:  Date of birth
+
+Full name:  Days between games
+Abbreviation:  Days Btwn Games
+Definition:  For a team, the days between games. Number of days between games will be one more than for goalie's days of rest. For example, a team playing on consecutive days will have 1 day between games, and a goalie playing in both games will have 0 days of rest.
+
+Full name:  Defensive zone face-off losses
+Abbreviation:  DZ FOL
+Definition:  Number of defensive zone face-off losses
+
+Full name:  Defensive zone face-off win percentage
+Abbreviation:  DZ FOW%
+Definition:  Defensive zone face-off win percentage is calculated as defensive zone face-off wins divided by defensive zone face-off draws taken by a player, DZ FOW/DZ FO or DZ FOW/(DZ FOW + DZ FOL). DZ FOW% is available since 2009-10.
+
+Full name:  Defensive zone face-off wins
+Abbreviation:  DZ FOW
+Definition:  Number of defensive zone face-off wins
+
+Full name:  Defensive zone face-offs
+Abbreviation:  DZ FO
+Definition:  Number of defensive zone face-off draws taken by the player
+
+Full name:  Defensive Zone Start Percentage (5-on-5)
+Abbreviation:  DZ Start%
+Definition:  Defensive zone start percentage (OZ Start %) is calculated at 5-on-5 and is an indication of a player's role at even strength. DZ Start % is the percentage of face-offs that occur in the defensive zone while the player is on the ice. In other words, DZ Start % equals the number of defensive zone face-offs taken by his team while he is on the ice divided by the number of offensive zone plus neutral zone plus defensive zone face-offs taken while he is on the ice. Players with higher DZ Start % values are being deployed defensively, and should expect a slight decrease in stats like SAT% and points compared players with lower values. DZ Start % is available since 2009-10.
+
+Full name:  Draft round
+Abbreviation:  Round
+Definition:  The round the player was selected in the NHL Entry Draft. Currently, there are seven rounds (since 2005), but the Draft has included as many as 25 rounds (in 1974). A blank indicates an undrafted player.
+
+Full name:  Draft year
+Abbreviation:  Draft Yr
+Definition:  The year the player was selected in the NHL Entry Draft. This may differ from the first year the player was eligible for the Draft. A blank indicates an undrafted player.
+
+Full name:  Empty net assists
+Abbreviation:  ENA
+Definition:  When trailing late in the third period, teams commonly pull their goalie in favor of an extra skater, increasing their chances of scoring while running a significantly higher risk of an opposition goal. Empty net assists are counted towards a player's overall totals.
+
+Full name:  Empty net goals
+Abbreviation:  ENG
+Definition:  When trailing late in the third period, teams commonly pull their goalie in favor of an extra skater, increasing their chances of scoring while running a significantly higher risk of an opposition goal. Empty net goals are counted towards a player's overall totals.
+
+Full name:  Empty net points
+Abbreviation:  ENP
+Definition:  When trailing late in the third period, teams commonly pull their goalie in favor of an extra skater, increasing their chances of scoring while running a significantly higher risk of an opposition goal. Empty net points are counted towards a player's overall totals.
+
+Full name:  Enhanced statistics
+Abbreviation:  General concepts
+Definition:  Enhanced statistics, also known as advanced statistics and hockey analytics, are statistics that go beyond traditional hockey box scores and game reports. Enhanced stats were introduced on NHL.com in 2015, and were further updated in 2019. The majority of enhanced stats are available starting in the 2009-10 season.
+
+Full name:  Even-strength face-off losses
+Abbreviation:  EV FOL
+Definition:  Number of even-strength face-off losses
+
+Full name:  Even-strength face-off win percentage
+Abbreviation:  EV FOW%
+Definition:  Even-strength face-off win percentage is calculated as even-strength face-off wins divided by even-strength face-off draws taken by a player, EV FOW/EV FO or EV FOW/(EV FOW + EV FOL). EV FOW% is available since 1997-98.
+
+Full name:  Even-strength face-off wins
+Abbreviation:  EV FOW
+Definition:  Number of even-strength face-off wins
+
+Full name:  Even-strength face-offs
+Abbreviation:  EV FO
+Definition:  Number of even-strength face-off draws taken by the player
+
+Full name:  Even-strength goal differential
+Abbreviation:  EV GD
+Definition:  Even-strength goal differential is even-strength goals for minus even-strength goals against. See even-strength goals against; see even-strength goals for; see even-strength stats.
+
+Full name:  Even-strength goals
+Abbreviation:  EVG
+Definition:  Player's own even-strength goals. See even-strength stats.
+
+Full name:  Even-strength goals against
+Abbreviation:  EV GA
+Definition:  For a team, EV GA are the total goals against while at even strength. For a player, EV GA are the even-strength goals against by their opponent while he is on the ice. See even-strength stats.
+
+Full name:  Even-strength goals for
+Abbreviation:  EV GF
+Definition:  For a team, EV GF are the total goals scored while at even strength. For a player, EV GF are the even-strength goals scored while he is on the ice, regardless of whether he receives a goal or assist, or not.
+
+Full name:  Even-strength goals for percentage
+Abbreviation:  EV GF%
+Definition:  Even-strength goals for percentage is EV GF / (EV GF + EV GA). The calculation is akin to SAT% and USAT%, and can therefore be compared with the two, while keeping in mind that the sample size for goal-based stats builds up much more slowly than the sample size of shot-based metrics. See even-strength goals against; see even-strength goals for; see even-strength stats; see sample size; see SAT%; see USAT%.
+
+Full name:  Even-strength points
+Abbreviation:  EVP
+Definition:  Player's own even-strength points. See even-strength stats.
+
+Full name:  Even-strength save percentage
+Abbreviation:  EV Sv%
+Definition:  As goalies face an unequal number of power play shots against, where save percentage is generally lower than with overall save percentage, even-strength save percentage can provide an alternative to overall Sv%. However, the modestly smaller sample size of EV Sv% supports looking at overall Sv% side by side with EV Sv%. EV Sv% is available since 1997-98. See even-strength stats; see save percentage.
+
+Full name:  Even-strength saves
+Abbreviation:  EV Svs
+Definition:  Saves by a goalie or a team, at even strength. See even-strength stats.
+
+Full name:  Even-strength shots against
+Abbreviation:  EV SA
+Definition:  Shots against are the number of shots on goal against a goalie or a team, at even strength. Attempts blocked and missed shots are not included. See even-strength stats.
+
+Full name:  Even-strength stats
+Abbreviation:  General concepts
+Definition:  An even-strength situation is when both teams have equal numbers of players on the ice, either because no one is in the penalty box or both teams have been penalized equally regarding manpower. The majority of play occurs at even strength, which includes 5-on-5, 4-on-4, and 3-on-3 situations. Comparing players at even strength (or 5-on-5) means that totals and rates will not be skewed by differing amounts of special teams (particularly power play) time. See 5-on-5 stats.
+
+Full name:  Even-strength time on ice
+Abbreviation:  EV TOI
+Definition:  Even-strength time on ice is a measure of the ice time a player averages per game in even strength situations. As not all players get significant shifts on special teams, even-strength time on ice allows comparison of players usage in normal situations. EV TOI is available since 1997-98. See Even strength situations and stats.
+
+Full name:  Even-strength time on ice per game played
+Abbreviation:  EV TOI/GP
+Definition:  A player's even-strength time on ice divided by games played
+
+Full name:  Extra attacker goals for
+Abbreviation:  XA GF
+Definition:  Teams pull their goalie in favor of an extra attacker when trailing late in games or in delayed penalty situations, increasing their chances of scoring.  Extra attacker goals are counted toward a player's overall totals.
+
+Full name:  Face-off losses
+Abbreviation:  FOL
+Definition:  Number of face-off losses - all situations
+
+Full name:  Face-off win percentage
+Abbreviation:  FOW%
+Definition:  Face-off win percentage is calculated as face-off wins divided by total face-off draws taken by a player or team, FOW/FO or FOW/(FOW+FOL). FOW% is available since 1997-98.
+
+Full name:  Face-off wins
+Abbreviation:  FOW
+Definition:  Number of face-off wins - all situations
+
+Full name:  Face-offs
+Abbreviation:  FO
+Definition:  Number of face-off draws taken by the player
+
+Full name:  First goals
+Abbreviation:  1g
+Definition:  First goals is a count of how many times the player scored the first goal of a game for either team.
+
+Full name:  Game misconduct penalties
+Abbreviation:  G Msct
+Definition:  Game misconduct penalties can be imposed for severe cases of abuse of officials, stick infractions, physical fouls, and other infractions. The offending player is ejected from the game. For statistical purposes, 10 penalty minutes are added to the players PIM total.
+
+Full name:  Game-winning goals
+Abbreviation:  GWG
+Definition:  The game-winning goal is the goal that gives the winning team one more goal than the opponent's eventual final score, regardless of when it occurs in a game or what the score is at the time.
+
+Full name:  Games played
+Abbreviation:  GP
+Definition:  Games played are games where the player had at least one shift on the ice (or participated in the shootout). Players included on the active roster but scratched from the game day lineup do not register a game played. Backup goalies (or rarely, skaters) in the lineup who do not receive playing time do not register a game played. However, goalie (or skater) who appears only in the shootout also earns a game played despite zero minutes of ice time.
+
+Full name:  Games relieved
+Abbreviation:  GR
+Definition:  Goalie's games played where another goalie started the game for the team, calculated as games played minus games started. If a goalie started the game, was relieved, and returned later in the game, that counts as one game started and zero games relieved.
+
+Full name:  Games started
+Abbreviation:  GS
+Definition:  Goalie's games played where he started the game for the team. If a goalie started the game, was relieved, and returned later in the game, that counts as one game started and zero games relieved.
+
+Full name:  Giveaways
+Abbreviation:  GvA
+Definition:  A giveaway is a form of turnover where the player makes an unforced error that results in giving the puck up to the opposition. Giveaways are available since 1997-98.
+
+Full name:  Giveaways per 60 minutes
+Abbreviation:  GvA/60
+Definition:  Player's average rate of giveaways per 60 minutes of ice time
+
+Full name:  Goal differential
+Abbreviation:  GD (or DIFF)
+Definition:  Goal differential is the number of goals a team scores minus the number of goals conceded, or GF - GA = GD. Shown as DIFF on Standings. See goals against; see goals for.
+
+Full name:  Goals
+Abbreviation:  G
+Definition:  The last player to touch the puck before it fully crosses the opponent's goal line is awarded a goal scored. In rare cases where an opposing team's skater directs the puck into his own goal, the player of the attacking side who last touched the puck shall be credited with the goal. Unless specified, goal totals are for all situations (even strength, power play, shorthanded) combined.
+
+Full name:  Goals - backhand
+Abbreviation:  G Back
+Definition:  Player's or team's goals on backhands
+
+Full name:  Goals - deflection
+Abbreviation:  G Deflect
+Definition:  Player's or team's goals on deflections. A deflection is a shot deflected off the player's body, not his stick.
+
+Full name:  Goals - slap shot
+Abbreviation:  G Slap
+Definition:  Player's or team's goals on slap shots
+
+Full name:  Goals - snap shot
+Abbreviation:  G Snap
+Definition:  Player's or team's goals on snap shots
+
+Full name:  Goals - tip-in
+Abbreviation:  G Tip
+Definition:  Player's or team's goals on tip-ins. A tip-in is a shot deflected off of the player's stick, not his body.
+
+Full name:  Goals - wraparound
+Abbreviation:  G Wrap
+Definition:  Player's or team's goals on wraparounds
+
+Full name:  Goals - wrist shot
+Abbreviation:  G Wrist
+Definition:  Player's or team's goals on wrist shots
+
+Full name:  Goals (5-on-5)
+Abbreviation:  G (5-on-5)
+Definition:  Goals scored by the player  in 5-on-5 situations
+
+Full name:  Goals against
+Abbreviation:  GA
+Definition:  Goals against can refer to the total goals allowed by a team or by a goaltender. In the case of a team, goals against is compared with goals for to show a team's goal differential. See goal differential; see goals for.
+
+Full name:  Goals against in games relieved
+Abbreviation:  GR GA
+Definition:  Goals against, only in goalie's games relieved
+
+Full name:  Goals against in games started
+Abbreviation:  GS GA
+Definition:  Goals against, only in goalie's games started
+
+Full name:  Goals against per game played
+Abbreviation:  GA/GP
+Definition:  For a team, goals against per game played is a top-level indication of the team's defense. On the Stats report, it includes empty net goals against but not shootout game-deciding goals against.
+
+Full name:  Goals against per regulation and overtime loss
+Abbreviation:  GA/ROL
+Definition:  For a goalie, the average number of goals allowed per game lost in regulation and overtime (i.e. per non-shootout loss). A goalie with a relatively low GA/ROL and an above-average Sv% could be considered to have gotten poor Win-Loss results despite generally good performances.
+
+Full name:  Goals for (goalie)
+Abbreviation:  GF
+Definition:  Goals scored by a goalie's team while the goalie is on the ice. Akin to "run support" in baseball, it can give context to the number of wins and losses by the goalie.
+
+Full name:  Goals for (team)
+Abbreviation:  GF
+Definition:  Goals for is the total goals scored by a team, that can be compared with goals against to show a team's goal differential. Note that on the Standings page, GF and GA for a team include shootout game-winning goals for and against. Therefore, for teams that have been involved in shootouts, GF and GA will be slightly different than GF and GA shown on the Stats pages. See goals against; see goal differential.
+
+Full name:  Goals for per game played
+Abbreviation:  GF/GP
+Definition:  For a team, goals for per game played is a top-level indication of the team's offense. On the Stats report, it includes empty net goals but not shootout game-deciding goals.
+
+Full name:  Goals for percentage
+Abbreviation:  Goals %
+Definition:  Goals for percentage can be calculated similarly to SAT% and USAT% but using goals. For a team, it is calculated as GF/(GF + GA). For a skater, it is calculated as GF/(GF + GA) while player is on ice, generally at 5-on-5. Goals % can be compared with SAT% and USAT%. See sample size; see SAT%; see USAT%.
+
+Full name:  Goals per 60 minutes (5-on-5)
+Abbreviation:  G/60 (5-on-5)
+Definition:  Goals scored by the player per 60 minutes in 5-on-5 situations
+
+Full name:  Goals per game played
+Abbreviation:  G/GP
+Definition:  In comparing the goal production of different players, goal totals can be divided by games played e.g. to account for players who have missed games due to injury or who have not spent the entire season in the NHL. However, this adjustment does not account for varying time on ice and varying special teams time. See even-strength stats; see goals.
+
+Full name:  Goals-against average
+Abbreviation:  GAA
+Definition:  Goals-against average is the average number of goals that a goaltender gives up per game, measured in 60-minute increments, calculated GAA = GA*60/time on ice.   See even-strength save percentage; see save percentage.
+
+Full name:  Goals-for average
+Abbreviation:  GFA
+Definition:  Goals scored by a goalie's team while the goalie is on the ice, per 60 minutes. The calculation is the same as goals-against average (GAA) but using goals for, GF. Akin to "run support" in baseball, it can give context to the number of wins and losses by the goalie.
+
+Full name:  Hall of Fame
+Abbreviation:  HOF
+Definition:  Is the player currently in the Hall of Fame? Yes or no.
+
+Full name:  Height
+Abbreviation:  Ht
+Definition:  Player's height in inches
+
+Full name:  Hits
+Abbreviation:  Hits
+Definition:  Hits is the number of body checks delivered by a player on the opposing team's puck carrier. Hits is available since 1997-98.
+
+Full name:  Hits per 60 minutes
+Abbreviation:  Hits/60
+Definition:  Player's average rate of hits per 60 minutes of ice time
+
+Full name:  Hits per game played
+Abbreviation:  Hits/GP
+Definition:  Hits divided by games played
+
+Full name:  Incomplete games
+Abbreviation:  IG
+Definition:  Goalie's number of games started in games where another goalie later played in the game for the team (even if only in the shootout). The game may be incomplete due to coach's decision or injury.
+
+Full name:  Individual shot attempts per 60 minutes (5-on-5)
+Abbreviation:  iSAT/60
+Definition:  Player's own shot attempts (missed shots, attempts blocked, and shots on goal) per 60 minutes of ice time on ice. On a 5-on-5 report like Puck Possession, where all of the stats are 5-on-5, iSAT/60 is the player's own shot attempts for 60 minutes of 5-on-5 ice time.
+
+Full name:  Losses in in games relieved
+Abbreviation:  GR L
+Definition:  Losses, only in goalie's games relieved
+
+Full name:  Losses in in games started
+Abbreviation:  GS L
+Definition:  Losses, only in goalie's games started
+
+Full name:  Major penalties
+Abbreviation:  Major
+Definition:  A major penalty is a more severe penalty imposed for boarding, butt-ending, charging, checking from behind, clipping, cross-checking, elbowing, head-butting, hooking, interference, kneeing, slashing, or spearing, infractions which can also be called as minor penalties. If deemed a major, the offending player is penalized for 5 minutes, remaining in the penalty box regardless of the number of opponent goals scored. In addition, certain major penalties carry automatic game misconduct penalties. Fighting also results in a major penalty; however, since two players are almost always assessed coincidental fighting majors, there is typically no change in manpower for either team.
+
+Full name:  Match penalties
+Abbreviation:  Match
+Definition:  A match penalty is imposed for injuring or attempting to injure an opponent due actions such as boarding, butt-ending, charging, checking from behind, clipping, cross-checking, elbowing, goalkeeper who uses his blocking glove to the head or face of an opponent, head-butting, high-sticking, punching an unsuspecting opponent, or spearing. The offending player is ejected from the game. The offender's team must select another player to serve a 5-minute penalty, akin to a major penalty. Further, the offending player is suspended indefinitely, pending review. 10 penalty minutes are added to the players PIM total.
+
+Full name:  Minor penalties
+Abbreviation:  Minor
+Definition:  If not deemed a serious offense, a minor penalty can be assessed for boarding, butt-ending, charging, checking from behind, clipping, cross-checking, elbowing, head-butting, hooking, interference, kneeing, slashing, or spearing. In the case of serious infractions, a major penalty can be assessed. Minor penalties can also be assessed for broken stick, closing hand on puck, concealing puck with hand, delay of game, goalkeeper interference, high-sticking, holding, holding the stick, illegal check to the head, illegal equipment, illegal stick, instigator, leaving the penalty box too early, leaving the crease (goalkeeper), participating in the play beyond the center red line (goalkeeper), roughing, throwing the puck towards opponents goal, throwing stick, tripping, use of hand on face-off, and unsportsmanlike conduct. Minor penalties result in the offending player being sent to the penalty box for two minutes (or a substitute player, if the goalie has been penalized), or until a goal is scored by their opponent (except in the case of coincidental minors). Double-minor penalties, resulting in two consecutive 2-minute penalties for the offender, can be assessed for more severe butt-ending, head-butting, high-sticking, or spearing infractions. See also Bench penalties.
+
+Full name:  Misconduct penalties
+Abbreviation:  Msct
+Definition:  A misconduct penalty typically occurs for abuse of officials, continued or excessively unruly conduct, or instigating a fight. The offending player serves 10 minutes in the penalty box without a loss of manpower on the ice typically in addition to other penalties.
+
+Full name:  Missed shots
+Abbreviation:  MsS
+Definition:  Missed shots are the number of off-target shot attempts taken by a player or team that are unblocked but do not require a goalie save. They include shot attempts that are wide of the net (MsS Wide), over the net (MsS Over), that hit the goalpost (MsS Post) or crossbar (MsS Cross), that fail to reach the net (MsS Short), or that are the result of failed bank attempts that do not hit the goalie (MsS Bank). Missed shots are a component of both SAT and USAT, as they indicate an offensive presence and attempt to score off of implied puck possession. MsS is available since 1997-98. See SAT; see USAT.
+
+Full name:  Nationality
+Abbreviation:  Natnlty
+Definition:  The nationality listed is the one for which a player played on a national team, like in World Juniors or the Olympics; otherwise, it defaults to the same as his birth country. Some players have dual nationalities. See country.
+
+Full name:  Net minor penalties per 60 minutes
+Abbreviation:  Net Minors/60
+Definition:  A player's minor penalties drawn minus minor penalties taken, per 60 minutes of 5-on-5 ice time. Forwards tend to have more positive scores than defensemen.
+
+Full name:  Net penalties
+Abbreviation:  Net Pen
+Definition:  Penalties drawn minus penalties taken. All penalty types, all situations. Forwards tend to have more positive scores than defensemen.
+
+Full name:  Net penalties per 60 minutes
+Abbreviation:  Net Pen/60
+Definition:  A player's penalties drawn minus penalties taken, per 60 minutes of ice time. All penalty types, all situations. Forwards tend to have more positive scores than defensemen.
+
+Full name:  Net penalty killing percentage
+Abbreviation:  Net PK%
+Definition:  Net PK% is one minus a team's power play goals against (PP GA) minus its shorthanded goals for (SH GF) divided by its times shorthanded (TS). 0% means that every opponent power-play opportunity was successful and that no shorthanded goals were scored. It is possible for Net PK% to be greater than 100% if the team scores more shorthanded goals for than the power-play goals against that it allows.
+
+Full name:  Net power play percentage
+Abbreviation:  Net PP%
+Definition:  Net PP% is a team's power play goals for (PP GF) minus its shorthanded goals against (SH GA) divided by its power play opportunities (PP Opp). 100% means that every power play opportunity was successful and that no shorthanded goals were scored against. It is possible for Net PP% to be negative if the team scores less power play goals than the shorthanded goals against that it allows.
+
+Full name:  Neutral zone face-off losses
+Abbreviation:  NZ FOL
+Definition:  Number of neutral zone face-off losses
+
+Full name:  Neutral zone face-off win percentage
+Abbreviation:  NZ FOW%
+Definition:  Neutral zone face-off win percentage is calculated as neutral zone face-off wins divided by neutral zone face-off draws taken by a player, NZ FOW/NZ FO or NZ FOW/(NZ FOW + NZ FOL). NZ FOW% is available since 2009-10.
+
+Full name:  Neutral zone face-off wins
+Abbreviation:  NZ FOW
+Definition:  Number of neutral zone face-off wins
+
+Full name:  Neutral zone face-offs
+Abbreviation:  NZ FO
+Definition:  Number of neutral zone face-off draws taken by the player
+
+Full name:  Neutral Zone Start Percentage (5-on-5)
+Abbreviation:  NZ Start%
+Definition:  Neutral zone start percentage (NZ Start %) is calculated at 5-on-5 and is an indication of a player's role at even strength. NZ Start % is the percentage of face-offs that occur in the neutral zone while the player is on the ice. In other words, NZ Start % equals the number of neutral zone face-offs taken by his team while he is on the ice divided by the number of offensive zone plus neutral zone plus defensive zone face-offs taken while he is on the ice. NZ Start % is available since 2009-10.
+
+Full name:  Offensive zone face-off losses
+Abbreviation:  OZ FOL
+Definition:  Number of offensive zone face-off losses
+
+Full name:  Offensive zone face-off ratio (5-on-5)
+Abbreviation:  OZ Ratio
+Definition:  Offensive zone face-off ratio (OZ Ratio) is closely related to offensive zone start percentage, and can be applied similarly. It is calculated at 5-on-5 and is an indication of a player's role at even strength. OZ Ratio is the percentage of non-neutral zone face-offs that occur in the offensive zone while the player is on the ice. In other words, OZ Ratio equals the number of offensive zone face-offs taken by his team while he is on the ice divided by the number of offensive zone plus defensive zone face-offs taken while he is on the ice. Players with OZ Ratio well above 50% are being deployed offensively, and should expect a slight increase in stats like SAT% and points compared to a similar player at 50%. Conversely, players with a OZ Ratio well under 50% are being deployed defensively, and should expect a slight decrease in stats like SAT% and points. OZ Ratio is available since 2009-10.
+
+Full name:  Offensive zone face-off win percentage
+Abbreviation:  OZ FOW%
+Definition:  Offensive zone face-off win percentage is calculated as offensive zone face-off wins divided by offensive zone face-off draws taken by a player, OZ FOW/OZ FO or OZ FOW/(OZ FOW + OZ FOL). OZ FOW% is available since 2009-10.
+
+Full name:  Offensive zone face-off wins
+Abbreviation:  OZ FOW
+Definition:  Number of offensive zone face-off wins
+
+Full name:  Offensive zone face-offs
+Abbreviation:  OZ FO
+Definition:  Number of offensive zone face-off draws taken by the player
+
+Full name:  Offensive Zone Start Percentage (5-on-5)
+Abbreviation:  OZ Start%
+Definition:  Offensive zone start percentage (OZ Start %) is closely related to offensive zone face-off ratio, and can be applied similarly. It is calculated at 5-on-5 and is an indication of a player's role at even strength. OZ Start % is the percentage of face-offs that occur in the offensive zone while the player is on the ice. In other words, OZ Start % equals the number of offensive zone face-offs taken by his team while he is on the ice divided by the number of offensive zone plus neutral zone plus defensive zone face-offs taken while he is on the ice. Players with higher OZ Start % values are being deployed offensively, and should expect a slight increase in stats like SAT% and points compared players with lower values. OZ Start % is available since 2009-10.
+
+Full name:  On-ice save percentage (5-on-5)
+Abbreviation:  On-ice Sv%
+Definition:  5-on-5 on-ice save percentage is one of the two components of on-ice shooting percentage plus save percentage, S%+Sv%. On-ice Sv% is a measure of how well his team's goalies are performing while a skater is on the ice, a factor that is largely out of his control. It can be a partial explanation for unexpectedly good or poor plus-minus ratings. On-ice Sv% is available since 2009-10. See regression to the mean; see shooting percentage plus save percentage.
+
+Full name:  On-ice shooting percentage (5-on-5)
+Abbreviation:  On-ice S%
+Definition:  5-on-5 on-ice shooting percentage is one of the two components of on-ice shooting percentage plus save percentage, S%+Sv%. On-ice S% is a measure of how well a player's teammates are capitalizing on turning shots into goals while he is on the ice, a factor that is largely out of his control. It can be a partial explanation for unexpectedly good or poor assist totals and plus-minus ratings. On-ice S% is available since 2009-10. See regression to the mean; see shooting percentage plus save percentage.
+
+Full name:  On-ice shooting percentage plus save percentage (5-on-5)
+Abbreviation:  On-ice S%+Sv%
+Definition:  On-ice S%+Sv% is the sum of the team's on-ice shooting percentage and on-ice save percentage in 5-on-5 situations while the player is on the ice. Its purpose is to estimate a player's good or bad fortune, often called "puck luck", during 5-on-5 play. A low value frequently portends future improvement in conventional stats, and vice versa. Only a handful of the NHL's most elite players have consistently had an on-ice S%+Sv% well over 100.0. Created by Tim Barnes, it is also known as PDO. See 5-on-5 shooting percentage; see plus-minus; see regression to the mean.
+
+Full name:  Overall pick number
+Abbreviation:  Overall
+Definition:  The overall pick number the player was selected in the NHL Entry Draft. Between 2006-2019, the Draft has included between 210-217 picks. A blank indicates an undrafted player.
+
+Full name:  Overtime goals
+Abbreviation:  OTG
+Definition:  Goals scored by the player in overtime. From 2005-06 to 2014-15, regular season overtime was 4-on-4. Starting in 2015-16, regular season overtime was 3-on-3.
+
+Full name:  Overtime losses in games relieved
+Abbreviation:  GR OT
+Definition:  Overtime losses, only in goalie's games relieved
+
+Full name:  Overtime losses in games started
+Abbreviation:  GS OT
+Definition:  Overtime losses, only in goalie's games started
+
+Full name:  Overtime time on ice
+Abbreviation:  OT TOI
+Definition:  Player's time on ice during overtime
+
+Full name:  Overtime time on ice per overtime game played
+Abbreviation:  OT TOI/OT GP
+Definition:  Player's time on ice during overtime, per overtime game his team participated in. From 2005-06 to 2014-15, regular season overtime was 4-on-4. Starting in 2015-16, regular season overtime was 3-on-3.
+
+Full name:  Penalties drawn
+Abbreviation:  Pen Drawn
+Definition:  Number of penalties drawn by the player. All penalty types, all situations.
+
+Full name:  Penalties drawn per 60 minutes
+Abbreviation:  Pen Drawn/60
+Definition:  Penalties drawn per 60 minutes of ice time by the player
+
+Full name:  Penalties taken
+Abbreviation:  Pen Taken
+Definition:  Number of penalties taken by the player. All penalty types, all situations.
+
+Full name:  Penalties taken per 60 minutes
+Abbreviation:  Pen Taken/60
+Definition:  Penalties taken per 60 minutes of ice time by the player
+
+Full name:  Penalty killing percentage
+Abbreviation:  PK%
+Definition:  PK% is one minus a team's power play goals against (PP GA) divided by its times shorthanded (TS), where 100% is best and 0% is worst.
+
+Full name:  Penalty minutes
+Abbreviation:  PIM
+Definition:  Penalty minutes are a total of all penalty minutes, whether those penalties caused an opposition power play or not. See penalties drawn; see penalties taken; see net penalties.
+
+Full name:  Penalty minutes per game played
+Abbreviation:  PIM/GP
+Definition:  Penalty minutes divided by games played
+
+Full name:  Penalty minutes per time on ice
+Abbreviation:  PIM/TOI
+Definition:  Player's penalty minutes compared to his time on ice. Shown as a percent, it can exceed 100%.
+
+Full name:  Penalty shot attempts
+Abbreviation:  PS Att
+Definition:  A penalty shot is awarded when a player in possession and control of the puck is fouled from behind, with no opposing skater between him and the opposing goalkeeper. If the opposing goalie has been pulled, leaving an empty net, a goal is automatically awarded instead. The penalty shot attempt takes the place of a power play, and no time elapses off the game clock.
+
+Full name:  Penalty shot attempts against
+Abbreviation:  PS SA
+Definition:  For a goalie, penalty shot attempts against. A penalty shot is awarded when a player in possession and control of the puck is fouled from behind, with no opposing skater between him and the opposing goalkeeper. If the opposing goalie has been pulled, leaving an empty net, a goal is automatically awarded instead. The penalty shot attempt takes the place of a power play, and no time elapses off the game clock.
+
+Full name:  Penalty shot goals
+Abbreviation:  PS G
+Definition:  A penalty shot is awarded when a player in possession and control of the puck is fouled from behind, with no opposing skater between him and the opposing goalkeeper. If the opposing goalie has been pulled, leaving an empty net, a goal is automatically awarded instead. Compare penalty shot goals to the total number of penalty shot attempts.
+
+Full name:  Penalty shot goals against
+Abbreviation:  PS GA
+Definition:  For a team, how many goals against were scored by penalty shots. For a goalie, penalty shot goals against. A penalty shot is awarded when a player in possession and control of the puck is fouled from behind, with no opposing skater between him and the opposing goalkeeper. If the opposing goalie has been pulled, leaving an empty net, a goal is automatically awarded instead. Compare penalty shot goals against to the total number of penalty shot attempts against.
+
+Full name:  Penalty shot goals for
+Abbreviation:  PS GF
+Definition:  For a team, how many goals for were scored by penalty shots
+
+Full name:  Penalty shot save percentage
+Abbreviation:  PS Sv%
+Definition:  A penalty shot is awarded when a player in possession and control of the puck is fouled from behind, with no opposing skater between him and the opposing goalkeeper. If the opposing goalie has been pulled, leaving an empty net, a goal is automatically awarded instead. Penalty shot save percentage differs from conventional shooting percentage in that all failures to score count as attempts, not just shots on goal. In other words, PS Sv% = PS Svs/PS SA.
+
+Full name:  Penalty shot shooting percentage
+Abbreviation:  PS S%
+Definition:  A penalty shot is awarded when a player in possession and control of the puck is fouled from behind, with no opposing skater between him and the opposing goalkeeper. If the opposing goalie has been pulled, leaving an empty net, a goal is automatically awarded instead. Penalty shot shooting percentage differs from conventional shooting percentage in that all failures to score count as attempts, not just shots on goal. In other words, PS S% = PS G/PS Att.
+
+Full name:  Penalty shots failed
+Abbreviation:  PS F
+Definition:  A penalty shot is awarded when a player in possession and control of the puck is fouled from behind, with no opposing skater between him and the opposing goalkeeper. If the opposing goalie has been pulled, leaving an empty net, a goal is automatically awarded instead. Penalty shots failed includes any non-goal results such as shots that miss the net.
+
+Full name:  Penalty shots saves
+Abbreviation:  PS Svs
+Definition:  For a goalie, penalty shot attempts against that do not result in a goal. A penalty shot is awarded when a player in possession and control of the puck is fouled from behind, with no opposing skater between him and the opposing goalkeeper. If the opposing goalie has been pulled, leaving an empty net, a goal is automatically awarded instead. Penalty saves include any non-goal results such as shots that miss the net.
+
+Full name:  Player's first season in the NHL
+Abbreviation:  1st Season
+Definition:  The first season the player recorded one NHL game played of that season type (regular season or playoffs). See games played.
+
+Full name:  Player's percentage of team power play time on ice
+Abbreviation:  PP TOI%
+Definition:  Percentage of the team's overall power play time played by the player
+
+Full name:  Player's percentage of team shorthanded time on ice
+Abbreviation:  SH TOI%
+Definition:  Percentage of the team's overall shorthanded time played by the player
+
+Full name:  Plus-minus
+Abbreviation:  +/-
+Definition:  In a sense, plus-minus was hockey's first enhanced stat, becoming an official NHL statistic in 1959-60. Plus-minus is a team's goal differential while a particular player is on the ice, excluding power play goals for and against but including empty net situations. All the skaters on the ice receive a plus or minus when an even-strength goal or shorthanded goal is scored depending on which team scored; plus-minus is not tracked for goalies.
+
+Full name:  Points
+Abbreviation:  P
+Definition:  Goals plus assists equals points. Unless otherwise specified, point totals are for all situations (even strength, power play, shorthanded) combined. Since only one point can be awarded on a goal to a player (either a goal or an assist), the goal scorer cannot get an assist as well, even if he was involved in passing the puck before scoring the goal. See assists; see goals.
+
+Full name:  Points (5-on-5)
+Abbreviation:  P (5-on-5)
+Definition:  Player's own points in 5-on-5 situations
+
+Full name:  Points (in the Standings)
+Abbreviation:  P (Standings)
+Definition:  Standings points for a team (or goalie): two points for a win (in regulation, in overtime, or in the shootout), one point for an overtime or shootout loss (since 2005-06), one point for a tie (prior to 2005-06), and zero points for a loss.
+
+Full name:  Points per 60 minutes (5-on-5)
+Abbreviation:  P/60 (5-on-5)
+Definition:  Player's own points per 60 minutes in 5-on-5 situations
+
+Full name:  Points per game played
+Abbreviation:  P/GP
+Definition:  In comparing the point production of different players, point totals can be divided by games played (e.g. to account for players who have missed games due to injury or who have not spent the entire season in the NHL). However, this adjustment does not account for varying time on ice and varying special teams time. See points; see even-strength points per 60.
+
+Full name:  Points percentage
+Abbreviation:  P%
+Definition:  For a team, the percentage of points per game played. For a goalie, the percentage of points per game played where he was involved in the decision. P% can be between .000 and 2.000 (0% to 200%).
+
+Full name:  Position
+Abbreviation:  Pos
+Definition:  Current position of player
+
+Full name:  Power play assists
+Abbreviation:  PPA
+Definition:  Player's own assists on the power play. See assists.
+
+Full name:  Power play assists per 60 minutes
+Abbreviation:  PPA/60
+Definition:  Player's own power play assists per 60 minutes of power play ice time. See assists.
+
+Full name:  Power play face-off losses
+Abbreviation:  PP FOL
+Definition:  Number of power play face-off losses
+
+Full name:  Power play face-off win percentage
+Abbreviation:  PP FOW%
+Definition:  Power play face-off win percentage is calculated as power play face-off wins divided by power play face-off draws taken by a player, PP FOW/PP FO or PP FOW/(PP FOW + PP FOL). PP FOW% is available since 1997-98.
+
+Full name:  Power play face-off wins
+Abbreviation:  PP FOW
+Definition:  Number of power play face-off wins
+
+Full name:  Power play face-offs
+Abbreviation:  PP FO
+Definition:  Number of power play face-off draws taken by the player
+
+Full name:  Power play goal differential
+Abbreviation:  PP GD
+Definition:  Power play goal differential equals power play goals for minus shorthanded goals against, crediting a team or on-ice player for minimizing shorthanded goals against in addition to scoring power play goals for. This stat is expected to be positive except in exceptional cases.
+
+Full name:  Power play goal differential per game played
+Abbreviation:  PP GD/GP
+Definition:  Power play goal differential per game played. See power play goal differential.
+
+Full name:  Power play goals
+Abbreviation:  PPG
+Definition:  Player's own power play goals. See goals.
+
+Full name:  Power play goals against
+Abbreviation:  PP GA
+Definition:  For a team, goals against while the opponent is on the power play. For a skater, goals against while the opponent is on the power play and the skater is on the ice.
+
+Full name:  Power play goals against per 60 minutes
+Abbreviation:  PP GA/60
+Definition:  PP GA/60 measures a player's penalty killing effectiveness, by giving the average number of opponent power play goals that were scored per 60 minutes of his shorthanded time on ice. As power play goals against are heavily influenced by teammates and goalie save percentage, this metric should be used cautiously, noting uncertainties caused by sample size. See sample size.
+
+Full name:  Power play goals against per game played
+Abbreviation:  PP GA/GP
+Definition:  Power play goals against per game played. See power play goals against.
+
+Full name:  Power play goals for
+Abbreviation:  PP GF
+Definition:  For a team, goals for while on the power play. For a skater, goals for while on the power play and the skater is on the ice.
+
+Full name:  Power play goals for per 60 minutes
+Abbreviation:  PP GF/60
+Definition:  PP GF/60 measures a player's impact on the power play, by giving the average number of power play goals scored per 60 minutes of his power play time on ice. As power play goals against are heavily influenced by teammates and opponent's save percentage, this metric should be used cautiously, noting uncertainties caused by sample size. See sample size.
+
+Full name:  Power play goals for per game played
+Abbreviation:  PP GF/GP
+Definition:  Power play goals for per game played. See power play goals for.
+
+Full name:  Power play goals per 60 minutes
+Abbreviation:  PPG/60
+Definition:  Player's own power play goals per 60 minutes of power play time on ice
+
+Full name:  Power play individual shot attempts
+Abbreviation:  PP iSAT
+Definition:  Player's own shot attempts (missed shots, attempts blocked, and shots on goal) while on the power play
+
+Full name:  Power play individual shot attempts per 60 minutes
+Abbreviation:  PP iSAT/60
+Definition:  Player's own shot attempts (missed shots, attempts blocked, and shots on goal) per 60 minutes of power play time on ice
+
+Full name:  Power play opportunities
+Abbreviation:  PP Opp
+Definition:  Number of chances a team has to score on the power play. It is used as a component of power play percentage, PP%, and net power play percentage, Net PP%.
+
+Full name:  Power play opportunities per game played
+Abbreviation:  PP Opp/GP
+Definition:  Number of chances a team has to score on the power play, divided by games played, to give the per-game average
+
+Full name:  Power play percentage
+Abbreviation:  PP%
+Definition:  PP% is a team's power play goals for (PP GF) divided by its power play opportunities (PP Opp), where 100% is best and 0% is worst.
+
+Full name:  Power play points
+Abbreviation:  PPP
+Definition:  Player's own power play points. See points.
+
+Full name:  Power play points per 60 minutes
+Abbreviation:  PPP/60
+Definition:  Player's own power play points per 60 minutes of power play time on ice
+
+Full name:  Power play primary assists
+Abbreviation:  PPA1
+Definition:  Player's own primary assists on the power play. See primary assists.
+
+Full name:  Power play primary assists per 60 minutes
+Abbreviation:  PPA1/60
+Definition:  Player's own power play primary assists per 60 minutes of power play time on ice. See primary assists.
+
+Full name:  Power play save percentage
+Abbreviation:  PP Sv%
+Definition:  Power play save percentage is a goalie's save percentage while the opposing team is on the power play (and his team is shorthanded). PP Sv% tends to be much lower than EV Sv% (and overall Sv%), given the higher quality shots that can be taken during the opponent's power play. Further, a goalie's PP Sv% tends to be volatile from season to season due to small sample size. PP Sv% is available since 1997-98.
+
+Full name:  Power play saves
+Abbreviation:  PP Svs
+Definition:  Saves by a goalie or a team, while their opponent is on the power play
+
+Full name:  Power play secondary assists
+Abbreviation:  PPA2
+Definition:  Player's own secondary assists on the power play. See secondary assists.
+
+Full name:  Power play secondary assists per 60 minutes
+Abbreviation:  PPA2/60
+Definition:  Player's own power play secondary assists scored per 60 minutes of power play time on ice. See secondary assists.
+
+Full name:  Power play shooting percentage
+Abbreviation:  PP S%
+Definition:  Player's own shooting percentage while on the power play
+
+Full name:  Power play shots
+Abbreviation:  PP Shots
+Definition:  Player's own power play shots
+
+Full name:  Power play shots against
+Abbreviation:  PP SA
+Definition:  Shots against are the number of shots on goal against a goalie or a team, while their opponent is on the power play. Attempts blocked and missed shots are not included.
+
+Full name:  Power play shots per 60 minutes
+Abbreviation:  PP S/60
+Definition:  Player's own power play shots per 60 minutes of power play time on ice
+
+Full name:  Power play time on ice
+Abbreviation:  PP TOI
+Definition:  Power play time on ice is the time on ice that a player spends in power play situations, when his team has a man advantage on the opposing team. PP TOI is available since 1997-98.
+
+Full name:  Power play time on ice per game played
+Abbreviation:  PP TOI/GP
+Definition:  A player's power play time on ice divided by games played
+
+Full name:  Primary assists
+Abbreviation:  A1
+Definition:  A primary assist (or first assist) is awarded to the teammate who touched the puck directly before the goal scorer. Primary assists are differentiated from secondary assists. The sum of goals and primary assists is often called primary points. See assists; see goals.
+
+Full name:  Primary assists (5-on-5)
+Abbreviation:  A1 (5-on-5)
+Definition:  Player's own primary assists in 5-on-5 situations
+
+Full name:  Primary assists per 60 minutes (5-on-5)
+Abbreviation:  A1/60 (5-on-5)
+Definition:  Player's own primary assists per 60 minutes in 5-on-5 situations
+
+Full name:  Primary assists per game played
+Abbreviation:  A1/GP
+Definition:  Primary assists divided by games played. See assists; see assists per games played; see primary assists.
+
+Full name:  Puck possession
+Abbreviation:  General concepts
+Definition:  Puck possession is a term that has been used to describe how well a team or player directs play at the opposition net, using the assumption that a team possessing the puck more would also get a higher percentage of shots, shot attempts, or unblocked shot attempts than their opponents. Technically speaking, shot-based metrics such as SAT and USAT are puck possession proxies, shot-based estimates of puck possession, rather than actual puck possession. In any case, both literal and figurative puck possession have a high correlation with winning and predicting future performance. See SAT; see USAT.
+
+Full name:  Regression to the mean
+Abbreviation:  General concepts
+Definition:  Regression to the mean is a term that refers to the phenomenon of statistical measures tending to return to their average value over time. For example, if Player A's career shooting percentage is 8.0% but he shot 11.0% last season, he will likely regress closer to 8.0% the following season. Though more frequently used negatively, the term can have a positive connotation if a player is expected to improve back to a career or recent average. See plus-minus, see sample size; see shooting percentage plus save percentage.
+
+Full name:  Regulation and overtime losses
+Abbreviation:  ROL
+Definition:  For a goalie, the number of regulation and overtime losses. In other words, the goalie's losses not including shootout losses.
+
+Full name:  Regulation plus overtime wins
+Abbreviation:  ROW
+Definition:  Regulation plus overtime wins are a teams wins, not counting shootout wins. ROW is used as one of the tiebreakers in the Standings (e.g. for determining playoff teams and seeding).
+
+Full name:  Relative shot attempts percentage
+Abbreviation:  SAT% Relative
+Definition:  Relative SAT percentage is a player's SAT% minus the team's SAT% while the player was not on the ice. A positive value indicates a player who performed better than the team average and a negative value indicates a player who performed worse than the team average. See SAT; see SAT%.
+
+Full name:  Relative unblocked shot attempts percentage
+Abbreviation:  USAT% Relative
+Definition:  Relative USAT percentage is a player's USAT% minus the team's USAT% while the player was not on the ice. A positive value indicates a player who performed better than the team average and a negative value indicates a player who performed worse than the team average. See USAT; see USAT%.
+
+Full name:  Rookie
+Abbreviation:  General concepts
+Definition:  1917-18: All players are rookies.  1918-19 - 1967-68 (inclusive): A player cannot have played more than 20 games in any single preceding season nor six or more games in each of any two preceding seasons.  1968-69 - 1972-73 (inclusive): A player cannot have played more than 25 games in any single preceding season nor six or more games in each of any two preceding seasons.  1973-74 - 1986-87 (inclusive): A player cannot have played more than 25 games in any single preceding season nor six or more games in each of any two preceding seasons in any major professional league (NHL or WHA).  1987-88 - 1989-90 (inclusive): A player cannot have played more than 25 games in any single preceding season nor six or more games in each of any two preceding seasons in any major professional league (NHL or WHA).  1990-91 - present (inclusive): A player cannot have played more than 25 games in any single preceding season nor six or more games in each of any two preceding seasons in any major professional league (NHL or WHA) and also must not have attained his twenty-sixth birthday by September 15th of the season in which he is eligible.
+
+Full name:  Sample size
+Abbreviation:  General concepts
+Definition:  Sample size is a statistical term referring to the amount of data on which an analysis is based. When a stat is based on a small sample size, the implication is that the stat or result may not be indicative of the player's or team's actual skill level due to a statistically short stretch of good or bad fortune. With a large enough sample size, cold and hot streaks tend to even out, making stats indicative of actual skill level. See plus/minus; see regression to the mean; see shooting percentage plus save percentage; see SAT; see USAT.
+
+Full name:  Save percentage
+Abbreviation:  Sv%
+Definition:  Save percentage is the percentage of shots on goal that a goalie prevents from going in his team's net, calculated by Sv% = SV / SA. Only shots on goal are considered, as a goaltender does not need to defend against attempts that are blocked by his teammates or attempts that miss the goal frame. Hitting the post or the crossbar of the goal does not count as a shot on goal, but as a missed shot (MsS). The NHL began officially tracking save percentage in 1955-56. See shooting percentage.
+
+Full name:  Save percentage in games played on 0 Days Rest
+Abbreviation:  0 Days Sv%
+Definition:  Goalie's save percentage in games played on 0 Days of Rest (i.e. games played are in back-to-back days).
+
+Full name:  Save percentage in games played on 1 Day Rest
+Abbreviation:  1 Day Sv%
+Definition:  Goalie's save percentage in games played on 1 day of rest (i.e. there is one day in between games played)
+
+Full name:  Save percentage in games played on 2 Days Rest
+Abbreviation:  2 Days Sv%
+Definition:  Goalie's save percentage in games played on 2 days of rest (i.e. there are two days in between games played)
+
+Full name:  Save percentage in games played on 3 Days Rest
+Abbreviation:  3 Days Sv%
+Definition:  Goalie's save percentage in games played on 3 days of rest (i.e. there are three days in between games played)
+
+Full name:  Save percentage in games played on 4+ Days Rest
+Abbreviation:  4+ Days Sv%
+Definition:  Goalie's save percentage in games played on 4 or more days of rest (i.e. there are four or more days in between games played)
+
+Full name:  Save percentage in games relieved
+Abbreviation:  GR Sv%
+Definition:  Save percentage, only in goalie's games relieved
+
+Full name:  Save percentage in games started
+Abbreviation:  GS Sv%
+Definition:  Save percentage, only in goalie's games started
+
+Full name:  Saves
+Abbreviation:  Sv
+Definition:  Saves are the number of shots against (SA) that are stopped by a goalie. Opponent shots minus saves equals goals against, or SA - SV = GA.
+
+Full name:  Saves in games relieved
+Abbreviation:  GR Sv
+Definition:  Saves, only in goalie's games relieved
+
+Full name:  Saves in games started
+Abbreviation:  GS Sv
+Definition:  Saves, only in goalie's games started
+
+Full name:  Score effects
+Abbreviation:  General concepts
+Definition:  The tendency of teams to play to the score of the game in the context of the time remaining in the game is called score effects. Teams playing from behind tend to take more shots but are less likely to score, while teams playing with the lead tend to take fewer shots but are more likely to score. An example of score effects would be when a team plays more defensively and cautiously while leading late in a game, primarily looking for low-risk/high-reward offense off of opportunistic counterattacks. Consequently, score effects should be recognized and/or adjusted for when looking at shot-based metrics like SAT% and USAT%. See Close or close game; see SAT%; see USAT%; see USAT% close.
+
+Full name:  Secondary assists
+Abbreviation:  A2
+Definition:  A secondary assist (or second assist) is awarded to the player who touched the puck two players before the goal scorer. Secondary assists are differentiated from primary assists. See assists; see goals.
+
+Full name:  Secondary assists (5-on-5)
+Abbreviation:  A2 (5-on-5)
+Definition:  Player's own secondary assists in 5-on-5 situations
+
+Full name:  Secondary assists per 60 minutes (5-on-5)
+Abbreviation:  A2/60 (5-on-5)
+Definition:  Player's own secondary assists per 60 minutes in 5-on-5 situations
+
+Full name:  Secondary assists per game played
+Abbreviation:  A2/GP
+Definition:  Secondary assists divided by games played. See assists; see assists per games played; see secondary assists.
+
+Full name:  Shooting percentage
+Abbreviation:  S%
+Definition:  The percentage of shots on goal (by a team or player) that go in the net, calculated as goals divided by shots. Shooting percentage does not take missed shots or blocked shots into consideration, only shots that were saved by the goalie or scored a goal. The NHL began officially tracking shooting percentage in the 1959-60 season. See save percentage.
+
+Full name:  Shooting percentage (5-on-5)
+Abbreviation:  S% (5-on-5)
+Definition:  Player's own shooting percentage in 5-on-5 situations
+
+Full name:  Shooting percentage on backhand shots
+Abbreviation:  S% Back
+Definition:  Player's or team's shooting percentage on backhands
+
+Full name:  Shooting percentage on deflections
+Abbreviation:  S% Deflect
+Definition:  Player's or team's shooting percentage on deflections. A deflection is a shot deflected off the player's body, not his stick.
+
+Full name:  Shooting percentage on slap shots
+Abbreviation:  S% Slap
+Definition:  Player's or team's shooting percentage on slap shots
+
+Full name:  Shooting percentage on snap shots
+Abbreviation:  S% Snap
+Definition:  Player's or team's shooting percentage on snap shots
+
+Full name:  Shooting percentage on tip-ins
+Abbreviation:  S% Tip
+Definition:  Player's or team's shooting percentage on tip-ins. A tip-in is a shot deflected off of the player's stick, not his body.
+
+Full name:  Shooting percentage on wraparounds
+Abbreviation:  S% Wrap
+Definition:  Player's or team's shooting percentage on wraparounds
+
+Full name:  Shooting percentage on wrist shots
+Abbreviation:  S% Wrist
+Definition:  Player's or team's shooting percentage on wrist shots
+
+Full name:  Shootout attempts against
+Abbreviation:  SO S/A
+Definition:  For a goalie or team, shootout attempts against
+
+Full name:  Shootout game-deciding goals
+Abbreviation:  GDG
+Definition:  Player's game-deciding shootout goals. It can be compared with shootout goals for his career on the same report.
+
+Full name:  Shootout games played
+Abbreviation:  S/O GP
+Definition:  For a goalie or skater, the number of games played where his team went to the shootout. For a skater, it can be compared to shootout shot attempts to see how often he was utilized in the shootout (keeping in mind that the third-announced shooter does not shoot if the shootout ends 2-0 after two rounds).
+
+Full name:  Shootout goals
+Abbreviation:  SO G
+Definition:  Player's shootout goals. It can be compared with shootout goals for his career on the same report.
+
+Full name:  Shootout goals against
+Abbreviation:  S/O GA
+Definition:  For a goalie or team, shootout goals against
+
+Full name:  Shootout save percentage
+Abbreviation:  S/O Sv%
+Definition:  Shootout save percentage differs from conventional save percentage in that all failures to score count as attempts, not just shots on goal. Shootout save percentage equals shootout saves divided by shootout attempts against.
+
+Full name:  Shootout saves
+Abbreviation:  S/O Saves
+Definition:  For a goalie or team, shootout saves.
+
+Full name:  Shootout shooting percentage
+Abbreviation:  S/O S%
+Definition:  Shootout shooting percentage differs from conventional shooting percentage in that all failures to score count as attempts, not just shots on goal. In other words, shootout shooting percentage equals shootout goals divided by shootout attempts.
+
+Full name:  Shootout shooting percentage plus save percentage
+Abbreviation:  S/O S%+Sv%
+Definition:  A team with a shootout shooting percentage plus shootout save percentage over 100.0% has performed above average on a per-attempt level.
+
+Full name:  Shootout shot attempts
+Abbreviation:  SO S
+Definition:  Player's shootout shot attempts (including missed shots and otherwise failed attempts). It can be compared with shootout shot attempts for his career on the same report.
+
+Full name:  Shootout stats, career
+Abbreviation:  General concepts
+Definition:  Skater and goalie shootout reports provide both shootout stats for the current time period selected (the default is the current season) and for the player's career. Because of the small sample size of shootout attempts in a season, particularly for skaters, it is useful to compare season stats with career stats, side by side. See sample size.
+
+Full name:  Shootout win percentage
+Abbreviation:  S/O W%
+Definition:  For a goalie, the percentage of shootout games won by his team in games where he participated in the shootout.
+
+Full name:  Shootout wins
+Abbreviation:  S/O Win
+Definition:  Number of team wins via the shootout.
+
+Full name:  Shoots/catches
+Abbreviation:  S/C
+Definition:  Shoots/catches indicates which side a skater shoots from or which side a goalie's catching glove is on. In both cases, there are more skaters that shoot from the left and goalies that catch on the left. S/C is not an indication of conventional left or right handedness.
+
+Full name:  Shorthanded assists
+Abbreviation:  SHA
+Definition:  Player's own assists while shorthanded. See assists.
+
+Full name:  Shorthanded assists per 60 minutes
+Abbreviation:  SHA/60
+Definition:  Player's own shorthanded assists per 60 minutes of shorthanded ice time. See assists.
+
+Full name:  Shorthanded face-off losses
+Abbreviation:  SH FOL
+Definition:  Number of shorthanded face-off losses
+
+Full name:  Shorthanded face-off win percentage
+Abbreviation:  SH FOW%
+Definition:  Shorthanded face-off win percentage is calculated as shorthanded face-off wins divided by shorthanded face-off draws taken by a player, SH FOW/SH FO or SH FOW/(SH FOW + SH FOL). SH FOW% is available since 1997-98.
+
+Full name:  Shorthanded face-off wins
+Abbreviation:  SH FOW
+Definition:  Number of shorthanded face-off wins
+
+Full name:  Shorthanded face-offs
+Abbreviation:  SH FO
+Definition:  Number of shorthanded face-off draws taken by the player
+
+Full name:  Shorthanded goal differential
+Abbreviation:  SH GD
+Definition:  Shorthanded goal differential equals shorthanded goals for minus power play goals against, crediting a team or on-ice player for shorthanded goals for in mitigating the number of power play goals against. This stat is expected to be negative except in exceptional cases.
+
+Full name:  Shorthanded goal differential per game played
+Abbreviation:  SH GD/GP
+Definition:  Shorthanded goal differential per game played. See shorthanded goal differential.
+
+Full name:  Shorthanded goals
+Abbreviation:  SHG
+Definition:  Player's own shorthanded goals. See goals.
+
+Full name:  Shorthanded goals against
+Abbreviation:  SH GA
+Definition:  For a team, goals against while the opponent is shorthanded. For a skater, goals against while the opponent is shorthanded and the skater is on the ice.
+
+Full name:  Shorthanded goals against per game played
+Abbreviation:  SH GA/GP
+Definition:  Shorthanded goals against per game played. See shorthanded goals against.
+
+Full name:  Shorthanded goals for
+Abbreviation:  SH GF
+Definition:  For a team, goals for while shorthanded. For a skater, goals for while shorthanded and the skater is on the ice.
+
+Full name:  Shorthanded goals for per game played
+Abbreviation:  SH GF/GP
+Definition:  Shorthanded goals for per game played. See shorthanded goals for.
+
+Full name:  Shorthanded goals per 60 minutes
+Abbreviation:  SHG/60
+Definition:  Player's own shorthanded goals per 60 minutes of shorthanded time on ice
+
+Full name:  Shorthanded individual shot attempts
+Abbreviation:  SH iSAT
+Definition:  Player's own shot attempts (missed shots, attempts blocked, and shots on goal) while shorthanded
+
+Full name:  Shorthanded individual shot attempts per 60 minutes
+Abbreviation:  SH iSAT/60
+Definition:  Player's own shot attempts (missed shots, attempts blocked, and shots on goal) per 60 minutes of shorthanded time on ice
+
+Full name:  Shorthanded points
+Abbreviation:  SHP
+Definition:  Player's own shorthanded points. See points.
+
+Full name:  Shorthanded points per 60 minutes
+Abbreviation:  SHP/60
+Definition:  Player's own shorthanded points per 60 minutes of shorthanded time on ice
+
+Full name:  Shorthanded primary assists
+Abbreviation:  SHA1
+Definition:  Player's own primary assists while shorthanded. See primary assists.
+
+Full name:  Shorthanded primary assists per 60 minutes
+Abbreviation:  SHA1/60
+Definition:  Player's own shorthanded primary assists per 60 minutes of shorthanded time on ice. See primary assists.
+
+Full name:  Shorthanded save percentage
+Abbreviation:  SH Sv%
+Definition:  Shorthanded save percentage is a goalie's save percentage while the opposing team is shorthanded (and his team is on the power play). Due to the very small number of shorthanded shots a goalie faces during a season, often on breakaways and odd-man rushes, SH Sv% is very volatile. SH Sv% is available since 1997-98.
+
+Full name:  Shorthanded saves
+Abbreviation:  SH Svs
+Definition:  Saves by a goalie or a team, while their opponent is shorthanded
+
+Full name:  Shorthanded secondary assists
+Abbreviation:  SHA2
+Definition:  Player's own secondary assists while shorthanded. See secondary assists.
+
+Full name:  Shorthanded secondary assists per 60 minutes
+Abbreviation:  SHA2/60
+Definition:  Player's own shorthanded secondary assists scored per 60 minutes of shorthanded time on ice. See secondary assists.
+
+Full name:  Shorthanded shooting percentage
+Abbreviation:  SH S%
+Definition:  Player's own shooting percentage while shorthanded
+
+Full name:  Shorthanded shots
+Abbreviation:  SH Shots
+Definition:  Player's own shorthanded shots
+
+Full name:  Shorthanded shots against
+Abbreviation:  SH SA
+Definition:  Shots against are the number of shots on goal against a goalie or a team, while their opponent is shorthanded. Attempts blocked and missed shots are not included.
+
+Full name:  Shorthanded shots per 60 minutes
+Abbreviation:  SH S/60
+Definition:  Player's own shorthanded shots per 60 minutes of shorthanded time on ice
+
+Full name:  Shorthanded time on ice
+Abbreviation:  SH TOI
+Definition:  Shorthanded time on ice is the time on ice that a player spends in shorthanded, or penalty killing, situations. SHTOI is available since 1997-98.
+
+Full name:  Shorthanded time on ice per game played
+Abbreviation:  SH TOI/GP
+Definition:  A player's shorthanded time on ice divided by games played
+
+Full name:  Shot attempt differential
+Abbreviation:  SAT
+Definition:  SAT, also known as Corsi, is a plus-minus statistic that measures shot attempts instead of goals. While he is on the ice, a player receives a plus for any shot attempt (on goal, missed, or blocked) that his team directs toward the opponents goal, and a minus for any shot attempt (on goal, missed, or blocked) toward his goal. Only 5-on-5 shot attempts are currently counted. The reason for looking at SAT (or alternatively, USAT, which excludes blocked shots) instead of plus-minus is to take advantage of the much larger sample size of shot attempts than goals, and to remove the influence of varying goaltending performance from a measure of skater performance. SAT can be represented by a differential, like plus-minus, where a positive number is above average (which is how SAT is displayed on nhl.com), or as a percentage, where over 50% is above average (shown by SAT% on nhl.com). Though SAT is a common proxy for puck possession, it does not measure actual puck possession time. SAT (and USAT) are also calculated when the player's team is ahead or behind in the score, or tied, or when the score is close. SAT is available since 2009-10. See blocked shots; see close or close game; see missed shots; see puck possession; see score effects; see SAT%; see shots; see USAT.
+
+Full name:  Shot attempts against
+Abbreviation:  SAT Agst
+Definition:  For a team, SAT Agst is the number of shot attempts against a team. For a player, SAT Agst is the number of shot attempts against the team while he is on the ice. SAT Agst is commonly paired with SAT For, to show a team's shot attempt differential, or SAT. SAT is available since 2009-10; it is calculated for 5-on-5 situations. See SAT; see SAT%.
+
+Full name:  Shot attempts for
+Abbreviation:  SAT For
+Definition:  For a team, SAT For is the number of shot attempts by a team. For a player, SAT For is the number of shot attempts by the team while he is on the ice. SAT For is commonly paired with SAT Agst, to show a team's shot attempt differential, or SAT. SAT is available since 2009-10; it is calculated for 5-on-5 situations. See SAT; see SAT%.
+
+Full name:  Shot attempts percentage
+Abbreviation:  SAT%
+Definition:  For a team, SAT% is the percentage of shot attempts that the team takes out of total shot attempts. In other words, SAT% = SAT For/(SAT For + SAT Against). For a player, it is the percentage of shots attempts the team takes, out of total shot attempts, while the player is on the ice. SAT% is also known as Corsi for percentage, or CF%. Only 5-on-5 shot attempts are currently counted. SAT% is available since 2009-10. See goals for percentage; see puck possession; see Relative SAT percentage; see USAT%.
+
+Full name:  Shot attempts percentage in close game situations
+Abbreviation:  SAT% Close
+Definition:  A close game is defined as a game within a single goal in the first two periods or tied in the third period or overtime. SAT% close is available since 2009-10. See close or close game; see SAT%; see USAT% close.
+
+Full name:  Shot attempts percentage while ahead
+Abbreviation:  SAT% Ahead
+Definition:  SAT% Ahead only counts SAT% for a team or player while the team is ahead in the score. It can be compared against SAT% or SAT% under different score situations. SAT% is available since 2009-10. See score effects; see SAT; see SAT%.
+
+Full name:  Shot attempts percentage while behind
+Abbreviation:  SAT% Behind
+Definition:  SAT% Behind only counts SAT% for a team or player while the team is behind in the score. It can be compared against SAT% or SAT% under different score situations. SAT% is available since 2009-10. See score effects; see SAT; see SAT%.
+
+Full name:  Shot attempts percentage while tied
+Abbreviation:  SAT% Tied
+Definition:  SAT% Tied only counts SAT% for a team or player while the team is tied in the score. It can be compared against SAT% or SAT% under different score situations. SAT% is available since 2009-10. See score effects; see SAT; see SAT%.
+
+Full name:  Shot attempts while ahead
+Abbreviation:  SAT Ahead
+Definition:  SAT Ahead equals SAT for minus SAT against, while the team or the on-ice skater's team is ahead in the score. SAT is available since 2009-10; it is calculated for 5-on-5 situations. See score effects; see SAT.
+
+Full name:  Shot attempts while behind
+Abbreviation:  SAT Behind
+Definition:  SAT Behind equals SAT for minus SAT against, while the team or the on-ice skater's team is behind in the score. SAT is available since 2009-10; it is calculated for 5-on-5 situations. See score effects; see SAT.
+
+Full name:  Shot attempts while tied
+Abbreviation:  SAT Tied
+Definition:  SAT Tied equals SAT for minus SAT against, while the team or the on-ice skater's team is tied in the score. SAT is available since 2009-10; it is calculated for 5-on-5 situations. See score effects; see SAT.
+
+Full name:  Shot differential per game played
+Abbreviation:  SD/GP
+Definition:  For a team, shot differential per game played, calculated by shots per game played (Shots/GP) minus by shots against per game played (SA/GP).
+
+Full name:  Shots
+Abbreviation:  S
+Definition:  Shots are the number of shots on goal taken by a player or team. Attempts blocked and missed shots are not included. Shots are also called shots on goal, or SOG. Shots are officially tracked for teams since 1955-56 and for skaters since 1959-60. See blocked shots; see missed shots; see SAT; see USAT.
+
+Full name:  Shots - backhand
+Abbreviation:  S Back
+Definition:  Player's or team's shots on backhands
+
+Full name:  Shots - deflection
+Abbreviation:  S Deflect
+Definition:  Player's or team's shots on deflections. A deflection is a shot deflected off the player's body, not his stick.
+
+Full name:  Shots - slap shot
+Abbreviation:  S Slap
+Definition:  Player's or team's shots on slap shots
+
+Full name:  Shots - snap shot
+Abbreviation:  S Snap
+Definition:  Player's or team's shots on snap shots
+
+Full name:  Shots - tip-in
+Abbreviation:  S Tip
+Definition:  Player's or team's shots on tip-ins. A tip-in is a shot deflected off of the player's stick, not his body.
+
+Full name:  Shots - wraparound
+Abbreviation:  S Wrap
+Definition:  Player's or team's shots on wraparounds
+
+Full name:  Shots - wrist shot
+Abbreviation:  S Wrist
+Definition:  Player's or team's shots on wrist shots
+
+Full name:  Shots against
+Abbreviation:  SA
+Definition:  Shots against are the number of shots on goal against a goalie or a team. Attempts blocked and missed shots are not included. Shots against are officially tracked for teams since 1955-56 and for skaters since 1959-60. See blocked shots; see goals against; see missed shots; see saves.
+
+Full name:  Shots against in games relieved
+Abbreviation:  GR SA
+Definition:  Shots against, only in goalie's games relieved
+
+Full name:  Shots against in games started
+Abbreviation:  GS SA
+Definition:  Shots against, only in goalie's games started
+
+Full name:  Shots against per 60 minutes
+Abbreviation:  SA/60 goalie
+Definition:  Goalie's number of shots against per 60 minutes. As a goalie's most direct contribution to team success is stopping shots (e.g. maintaining a high Sv%), SA/60 is a general indication of the workload placed on him by his defense. For example, a goalie facing 40 SA must maintain a .950 Sv% to allow 2 GA, while a goalie facing 20 SA must only maintain a .900 Sv% to allow 2 GA.
+
+Full name:  Shots against per game played
+Abbreviation:  SA/GP
+Definition:  For a team, shots against per game played
+
+Full name:  Shots per 60 minutes (5-on-5)
+Abbreviation:  S/60
+Definition:  Player's own shots per 60 minutes of ice time. On a 5v5 report like Puck Possession, where all of the stats are 5-on-5, S/60 is the player's own shots for 60 minutes of 5-on-5 ice time.
+
+Full name:  Shots per game played
+Abbreviation:  S/GP
+Definition:  A player's or team's shots divided by games played
+
+Full name:  Shutouts
+Abbreviation:  SO shutout
+Definition:  Games where the opposing team has zero goals scored prior to the shootout.
+
+Full name:  Starts over .900
+Abbreviation:  Starts over .900
+Definition:  Number of games started where the goalie has a .900 save percentage or higher. Similar to Quality Starts, created by Rob Vollman.
+
+Full name:  Starts over .900 percentage
+Abbreviation:  Starts over .900 %
+Definition:  Percentage of a goalie's games started where the goalie has a .900 save percentage or higher. Similar to Quality Starts percentage, created by Rob Vollman.
+
+Full name:  State or province
+Abbreviation:  S/P
+Definition:  The U.S. state or Canadian province where the player was born.
+
+Full name:  Takeaways
+Abbreviation:  TkA
+Definition:  A takeaway is a form of turnover in which the player takes the puck from the opposition, rather than gaining possession through an opposition error. Takeaways are available since 1997-98.
+
+Full name:  Takeaways per 60 minutes
+Abbreviation:  TkA/60
+Definition:  Player's average rate of takeaways per 60 minutes of ice time
+
+Full name:  Ties in games relieved
+Abbreviation:  GR T
+Definition:  Ties, only in goalie's games relieved
+
+Full name:  Ties in games started
+Abbreviation:  GS T
+Definition:  Ties, only in goalie's games started
+
+Full name:  Time on ice
+Abbreviation:  TOI
+Definition:  Time on ice is a player's playing time in all situations (even strength, power play, shorthanded). Consequently, TOI = EV TOI + PP TOI + SH TOI. See even-strength time on ice; see power play time on ice; see shorthanded time on ice.
+
+Full name:  Time on ice per game played
+Abbreviation:  TOI/GP
+Definition:  A player's total time on ice divided by games played
+
+Full name:  Time on ice per game played (5-on-5)
+Abbreviation:  TOI/GP (5-on-5)
+Definition:  Player's time on ice in 5-on-5 situations
+
+Full name:  Times shorthanded
+Abbreviation:  TS
+Definition:  Number of chances a team's opponent has to score on the power play. It is used as a component of penalty killing percentage, PK%, and net penalty killing percentage, Net PK%.
+
+Full name:  Times shorthanded per game played
+Abbreviation:  TS/GP
+Definition:  Number of chances a team's opponent has to score on the power play, divided by games played, to give the per-game average
+
+Full name:  Unblocked shot attempt differential
+Abbreviation:  USAT
+Definition:  USAT, also known as Fenwick, is a plus-minus statistic that measures unblocked shot attempts instead of goals. While he is on the ice, a player receives a plus for any unblocked shot attempt (on goal or missed) that his team directs toward the opponents goal, and a minus for any unblocked shot attempt (on goal or missed) toward his own goal. Only 5-on-5 shot attempts are currently counted. The reason for looking at USAT (or alternatively, SAT, which includes blocked shots) instead of plus-minus is to take advantage of the much larger sample size of unblocked shot attempts than goals, and to remove the influence of varying goaltending performance from a measure of skater performance. With the removal of blocked shot attempts from consideration, the sample size of USAT is slightly smaller than that of SAT; however, USAT takes team and player shot blocking performance into account, while SAT does not. USAT can be represented by a differential, like plus-minus, where a positive number is above average (which is how USAT is displayed on nhl.com), or as a percentage, where over 50% is above average (shown by USAT% on nhl.com). Though USAT is a common proxy for puck possession, it does not measure actual puck possession time. USAT (and SAT) are also calculated when the player's team is ahead or behind in the score, or tied, or when the score is close. USAT is available since 2009-10. See blocked shots; see close or close game; see missed shots; see puck possession; see score effects; see SAT; see SAT%; see shots; see USAT%.
+
+Full name:  Unblocked shot attempts against
+Abbreviation:  USAT Agst
+Definition:  For a team, USAT Agst is the number of shot attempts against a team. For a player, USAT Agst is the number of shot attempts against the team while he is on the ice. USAT Agst is commonly paired with USAT For, to show a team's shot attempt differential, or USAT. USAT is available since 2009-10; it is calculated for 5-on-5 situations. See USAT; see USAT%.
+
+Full name:  Unblocked shot attempts for
+Abbreviation:  USAT For
+Definition:  For a team, USAT For is the number of shot attempts by a team. For a player, USAT For is the number of shot attempts by the team while he is on the ice. USAT For is commonly paired with USAT Agst, to show a team's shot attempt differential, or USAT. USAT is available since 2009-10; it is calculated for 5-on-5 situations. See USAT; see USAT%.
+
+Full name:  Unblocked shot attempts percentage
+Abbreviation:  USAT%
+Definition:  For a team, USAT% is the percentage of unblocked shot attempts that the team takes out of total unblocked shot attempts. In other words, USAT% = USAT For/(USAT For + USAT Against). For a player, it is the percentage of unblocked shots attempts the team takes, out of total unblocked shot attempts, while the player is on the ice. USAT% is also known as Fenwick for percentage, or FF%. USAT% is available since 2009-10. See goals for percentage; puck possession; see SAT%; see USAT% close.
+
+Full name:  Unblocked shot attempts percentage in close game situations
+Abbreviation:  USAT% Close
+Definition:  A close game is defined as a game within a single goal in the first two periods or tied in the third period or overtime. Close-game USAT%, also known as Fenwick Close, is considered a strong indicator of team possession ability, and therefore, a good predictor of future success. USAT% close is available since 2009-10. See close or close game; see USAT%.
+
+Full name:  Unblocked shot attempts percentage while ahead
+Abbreviation:  USAT% Ahead
+Definition:  USAT% Ahead only counts USAT% for a team or player while the team is ahead in the score. It can be compared against USAT% or USAT% under different score situations. USAT% is available since 2009-10. See score effects; see USAT; see USAT%.
+
+Full name:  Unblocked shot attempts percentage while behind
+Abbreviation:  USAT% Behind
+Definition:  USAT% Behind only counts USAT% for a team or player while the team is behind in the score. It can be compared against USAT% or USAT% under different score situations. USAT% is available since 2009-10. See score effects; see USAT; see USAT%.
+
+Full name:  Unblocked shot attempts percentage while tied
+Abbreviation:  USAT% Tied
+Definition:  USAT% Tied only counts USAT% for a team or player while the team is tied in the score. It can be compared against USAT% or USAT% under different score situations. USAT% is available since 2009-10. See score effects; see USAT; see USAT%.
+
+Full name:  Unblocked shot attempts while ahead
+Abbreviation:  USAT Ahead
+Definition:  USAT Ahead equals USAT for minus USAT against, while the team or the on-ice skater's team is ahead in the score. USAT is available since 2009-10; it is calculated for 5-on-5 situations. See score effects; see USAT.
+
+Full name:  Unblocked shot attempts while behind
+Abbreviation:  USAT Behind
+Definition:  USAT Behind equals USAT for minus USAT against, while the team or the on-ice skater's team is behind in the score. USAT is available since 2009-10; it is calculated for 5-on-5 situations. See score effects; see USAT.
+
+Full name:  Unblocked shot attempts while tied
+Abbreviation:  USAT Tied
+Definition:  USAT Tied equals USAT for minus USAT against, while the team or the on-ice skater's team is tied in the score. USAT is available since 2009-10; it is calculated for 5-on-5 situations. See score effects; see USAT.
+
+Full name:  Weight
+Abbreviation:  Wt
+Definition:  Player's weight in pounds
+
+Full name:  Wins in games relieved
+Abbreviation:  GR W
+Definition:  Wins, only in goalie's games relieved
+
+Full name:  Wins in games started
+Abbreviation:  GS W
+Definition:  Wins, only in goalie's games started

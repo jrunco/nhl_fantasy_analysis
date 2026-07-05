@@ -1,0 +1,35 @@
+notes
+
+player game log
+"""
+# Get game-by-game stats for a player
+game_log = client.stats.player_game_log(
+    player_id="8478402",
+    season_id="20232024",
+    game_type=2  # Regular season
+)
+"""
+gets the following stats / game
+"""
+{'gameId': 2023020009,
+ 'teamAbbrev': 'EDM',
+ 'homeRoadFlag': 'R',
+ 'gameDate': '2023-10-11',
+ 'goals': 0,
+ 'assists': 1,
+ 'commonName': {'default': 'Oilers'},
+ 'opponentCommonName': {'default': 'Canucks'},
+ 'points': 1,
+ 'plusMinus': -3,
+ 'powerPlayGoals': 0,
+ 'powerPlayPoints': 1,
+ 'gameWinningGoals': 0,
+ 'otGoals': 0,
+ 'shots': 2,
+ 'shifts': 24,
+ 'shorthandedGoals': 0,
+ 'shorthandedPoints': 0,
+ 'pim': 2,
+ 'toi': '20:13',
+ 'opponentAbbrev': 'VAN'}]
+"""
