@@ -12,4 +12,4 @@ Note: this tool is not complete. The following work in is progress:
   1. I'm adding new capabilities for more in-depth player analysis.
   2. Moving this tool to a GUI window environment in progress. gui_driver.py does not have all of the functionality of the jupyter notebook (yet).
 
-Also, ignore the sandbox. It is where I test new ideas for the project 
+Also, ignore the sandbox. It is where I test new ideas for the project. Or don't ignore it and look at messy code.

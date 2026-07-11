@@ -244,42 +244,8 @@ df_nhl_rs_career_stats_season_group = df_nhl_rs_career_stats.groupby('season').s
 
 
 
-""" try the functions I made """
-
-from function_library import find_player_id
-from function_library import get_stats_by_season
-from function_library import plot_stat_per_game
-
-
-test_id = find_player_id("Tyler Toffoli", 20252026)
-
-df_test = get_stats_by_season(test_id)
-
-
-fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(12, 5))
-
-plot_stat_per_game(ax1, "ax1", df_test, True, "goals_per_game", "Goals/Game per Season", "Goals/Game")
-plot_stat_per_game(ax2, "ax2", df_test, False, "assists_per_game", "Assists/Game per Season", "Assists/Game")
-plt.show()
 
 ## TODO: need to combine data points on years when a player is traded mid season
-
-
-
-'''
-plot_stat_per_game(df_test, "assists_per_game", "Assists/Game per Season", "Assists/Game")
-plot_stat_per_game(df_test, "points_per_game", "Points/Game per Season", "Points/Game")
-plot_stat_per_game(df_test, "powerPlayGoals_per_game", "Power Play Goals/Game per Season", "Power Play Goals/Game")
-plot_stat_per_game(df_test, "powerPlayAssists_per_game", "Power Play Assists/Game per Season", "Power Play Assists/Game")
-plot_stat_per_game(df_test, "powerPlayPoints_per_game", "Power Play Points/Game per Season", "Power Play Points/Game")
-plot_stat_per_game(df_test, "shorthandedGoals_per_game", "Short Handed Goals/Game per Season", "Short Handed Goals/Game")
-plot_stat_per_game(df_test, "shorthandedAssists_per_game", "Short Handed Assists/Game per Season", "Short Handed Assists/Game")
-plot_stat_per_game(df_test, "shorthandedPoints_per_game", "Short Handed Points/Game per Season", "Short Handed Points/Game")
-plot_stat_per_game(df_test, "shots_per_game", "Shots/Game per Season", "Shots/Game")
-'''
-
-
-
 
 
 
