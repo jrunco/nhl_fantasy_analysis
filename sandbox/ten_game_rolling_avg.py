@@ -36,12 +36,12 @@ fantasy_pims = 0.0
 
 
 
-client = NHLClient(debug=True)
+client = NHLClient(debug=False)
 
 
 # find player and get player_id
 
-get_player = "Macklin Celebrini"
+get_player = "Will Smith"
 #position = "forwards" # dict_keys(['forwards', 'defensemen', 'goalies'])
 season = "20252026"
 
@@ -65,6 +65,7 @@ for team in teams:
 
 player_game_stats = client.stats.player_game_log(player_id=player_id, season_id=season, game_type="2")
 
+df_player_game_stats = pd.DataFrame(data=player_game_stats)
 
 
 
@@ -72,7 +73,38 @@ player_game_stats = client.stats.player_game_log(player_id=player_id, season_id=
 
 
 
+### side project -- make converting toi from mm:ss --> float a function that i can use in multiple places
 
+def toi_string_to_float(df, str_param_name, float_param_name):
+
+    # convert avgToi from a string to a float
+    minutes = np.zeros(len(df))
+    seconds = np.zeros(len(df))
+    for i in range(len(df)):
+        minutes[i], seconds[i] = map(int, df[str_param_name].values[i].split(":"))
+    df[float_param_name] = minutes + (seconds / 60.)
+
+    return df
+
+df_player_game_stats = toi_string_to_float(df_player_game_stats, "toi", "toi_float")
+
+
+### side project -- get home/road splits
+
+df_player_game_stats_home = df_player_game_stats[df_player_game_stats["homeRoadFlag"] == "H"]
+df_player_game_stats_road = df_player_game_stats[df_player_game_stats["homeRoadFlag"] == "R"]
+
+print("Average TOI:", np.mean(df_player_game_stats["toi_float"]))
+print("Average TOI at home:", np.mean(df_player_game_stats_home["toi_float"]))
+print("Average TOI on road:", np.mean(df_player_game_stats_road["toi_float"]))
+
+print("Total Goals:", sum(df_player_game_stats["goals"]))
+print("Total Goals at home:", sum(df_player_game_stats_home["goals"]))
+print("Total Goals on road:", sum(df_player_game_stats_road["goals"]))
+
+print("Total Goals/game:", round(sum(df_player_game_stats["goals"])/len(df_player_game_stats), 2))
+print("Total Goals/game at home:", round(sum(df_player_game_stats_home["goals"])/len(df_player_game_stats_home), 2))
+print("Total Goals/game on road:", round(sum(df_player_game_stats_road["goals"])/len(df_player_game_stats_road), 2))
 
 
 
