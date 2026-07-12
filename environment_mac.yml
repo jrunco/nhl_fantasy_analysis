@@ -1,0 +1,14 @@
+name: fantasy-hockey-base
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - jupyter
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - pip
+  - pip:
+      - nhl-api-py
