@@ -5,6 +5,9 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+from tabulate import tabulate
+from prettytable import PrettyTable, TableStyle
+
 from nhlpy.nhl_client import NHLClient
 
 from nhlpy.api.query.builder import QueryBuilder, QueryContext
@@ -42,6 +45,18 @@ def find_player_id(player_name, season):
                     player_id = player["id"]
 
     return player_id
+
+
+def toi_string_to_float(df, str_param_name, float_param_name):
+
+    # convert avgToi from a string to a float
+    minutes = np.zeros(len(df))
+    seconds = np.zeros(len(df))
+    for i in range(len(df)):
+        minutes[i], seconds[i] = map(int, df[str_param_name].values[i].split(":"))
+    df[float_param_name] = minutes + (seconds / 60.)
+
+    return df
 
 
 def load_summary_statistics_for_skaters(season_start, season_end, limit: int = 100):
@@ -240,6 +255,30 @@ def skater_single_season_fantasy_points(skater_name,
             + season_penaltyMinutes*fantasy_pims
             )
         print("%s fantasy points = %s" % (name_grabbed, tot_fantasy_points))
+        print(" ")
+        print("# of games played = %s" % (season_gamesPlayed))
+        print("Fantasy points per game = %s" % ((tot_fantasy_points/season_gamesPlayed)))
+        print(" ")
+        print(" ")
+        table = PrettyTable(['Stat Name', 'Total Stats', 'Fantasy Points', 'Stats / Game', 'Fantasy Points / Game'])
+        table.title = "Fantasy Points Breakdown by Stat"
+        table.add_row(['Goals', season_goals, round((season_goals*fantasy_goals), 2), round(season_goals/season_gamesPlayed, 2), round((season_goals*fantasy_goals)/season_gamesPlayed, 2)])
+        table.add_row(['Assists', season_assists, round((season_assists*fantasy_assists), 2), round(season_assists/season_gamesPlayed, 2), round((season_assists*fantasy_assists)/season_gamesPlayed, 2)])
+        table.add_row(['Plus/Minus', season_plusMinus, round((season_plusMinus*fantasy_plusminus), 2), round(season_plusMinus/season_gamesPlayed, 2), round((season_plusMinus*fantasy_plusminus)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for PP Goals', season_ppGoals, round((season_ppGoals*fantasy_pp_goals), 2), round(season_ppGoals/season_gamesPlayed, 2), round((season_ppGoals*fantasy_pp_goals)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for PP Assists', season_ppAssists, round((season_ppAssists*fantasy_pp_assists), 2), round(season_ppAssists/season_gamesPlayed, 2), round((season_ppAssists*fantasy_pp_assists)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for SH Goals', season_shGoals, round((season_shGoals*fantasy_sh_goals), 2), round(season_shGoals/season_gamesPlayed, 2), round((season_shGoals*fantasy_sh_goals)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for SH Assists', season_shAssists, round((season_shAssists*fantasy_sh_assists), 2), round(season_shAssists/season_gamesPlayed, 2), round((season_shAssists*fantasy_sh_assists)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for Game Winning Goals', season_gameWinningGoals, round((season_gameWinningGoals*fantasy_game_winning_goals), 2), round(season_gameWinningGoals/season_gamesPlayed, 2), round((season_gameWinningGoals*fantasy_game_winning_goals)/season_gamesPlayed, 2)])
+        table.add_row(['Shots', season_shots, round((season_shots*fantasy_shots), 2), round(season_shots/season_gamesPlayed, 2), round((season_shots*fantasy_shots)/season_gamesPlayed, 2)])
+        table.add_row(['Hits', season_hits, round((season_hits*fantasy_hits), 2), round(season_hits/season_gamesPlayed, 2), round((season_hits*fantasy_hits)/season_gamesPlayed, 2)])
+        table.add_row(['Blocks', season_blockedShots, round((season_blockedShots*fantasy_blocks), 2), round(season_blockedShots/season_gamesPlayed, 2), round((season_blockedShots*fantasy_blocks)/season_gamesPlayed, 2)])
+        table.add_row(['Face-offs', (season_totalFaceoffWins-season_totalFaceoffLosses), round(((season_totalFaceoffWins*fantasy_fowins)+(season_totalFaceoffLosses*fantasy_folosses)), 2), round((season_totalFaceoffWins-season_totalFaceoffLosses)/season_gamesPlayed, 2), round(((season_totalFaceoffWins*fantasy_fowins)+(season_totalFaceoffLosses*fantasy_folosses))/season_gamesPlayed, 2)])
+        table.add_row(['PIMs', season_penaltyMinutes, round((season_penaltyMinutes*fantasy_pims), 2), round(season_penaltyMinutes/season_gamesPlayed, 2), round((season_penaltyMinutes*fantasy_pims)/season_gamesPlayed, 2)])
+        #table.add_divider()
+        #table.set_style(DOUBLE_BORDER)
+        print(table)
+
     return tot_fantasy_points
 
 
@@ -358,3 +397,116 @@ def plot_stat_per_game(df, stat, title, ylabel):
     plt.xticks(rotation=45)
     #plt.show()
 """
+
+
+def home_away_split(player_id, season_id):
+
+    client = NHLClient(debug=False)
+
+    season = season_id
+
+    player_id = str(player_id)
+    player_game_stats = client.stats.player_game_log(player_id=str(player_id), season_id=season, game_type="2")
+
+    df_player_game_stats = pd.DataFrame(data=player_game_stats)
+    df_player_game_stats["powerPlayAssists"] = df_player_game_stats["powerPlayPoints"] - df_player_game_stats["powerPlayGoals"]
+    df_player_game_stats["shorthandedAssists"] = df_player_game_stats["shorthandedPoints"] - df_player_game_stats["shorthandedGoals"]
+
+    df_player_game_stats = toi_string_to_float(df_player_game_stats, "toi", "toi_float")
+
+    df_player_game_stats_home = df_player_game_stats[df_player_game_stats["homeRoadFlag"] == "H"]
+    df_player_game_stats_road = df_player_game_stats[df_player_game_stats["homeRoadFlag"] == "R"]
+
+    df_player_game_stats_points_per_game = round(sum(df_player_game_stats["points"])/len(df_player_game_stats), 2)
+    df_player_game_stats_points_per_60min = round((sum(df_player_game_stats["points"])/len(df_player_game_stats))/np.mean(df_player_game_stats["toi_float"]) * 60., 2)
+    df_player_game_stats_goals_per_game = round(sum(df_player_game_stats["goals"])/len(df_player_game_stats), 2)
+    df_player_game_stats_goals_per_60min = round((sum(df_player_game_stats["goals"])/len(df_player_game_stats))/np.mean(df_player_game_stats["toi_float"]) * 60., 2)
+    df_player_game_stats_assists_per_game = round(sum(df_player_game_stats["assists"])/len(df_player_game_stats), 2)
+    df_player_game_stats_assists_per_60min = round((sum(df_player_game_stats["assists"])/len(df_player_game_stats))/np.mean(df_player_game_stats["toi_float"]) * 60., 2)
+    df_player_game_stats_shots_per_game = round(sum(df_player_game_stats["shots"])/len(df_player_game_stats), 2)
+    df_player_game_stats_shots_per_60min = round((sum(df_player_game_stats["shots"])/len(df_player_game_stats))/np.mean(df_player_game_stats["toi_float"]) * 60., 2)
+    df_player_game_stats_pm_per_game = round(sum(df_player_game_stats["plusMinus"])/len(df_player_game_stats), 2)
+    df_player_game_stats_pm_per_60min = round((sum(df_player_game_stats["plusMinus"])/len(df_player_game_stats))/np.mean(df_player_game_stats["toi_float"]) * 60., 2)
+    df_player_game_stats_pp_points_per_game = round(sum(df_player_game_stats["powerPlayPoints"])/len(df_player_game_stats), 2)
+    df_player_game_stats_pp_points_per_60min = round((sum(df_player_game_stats["powerPlayPoints"])/len(df_player_game_stats))/np.mean(df_player_game_stats["toi_float"]) * 60., 2)
+    df_player_game_stats_pp_goals_per_game = round(sum(df_player_game_stats["powerPlayGoals"])/len(df_player_game_stats), 2)
+    df_player_game_stats_pp_goals_per_60min = round((sum(df_player_game_stats["powerPlayGoals"])/len(df_player_game_stats))/np.mean(df_player_game_stats["toi_float"]) * 60., 2)
+    df_player_game_stats_pp_assists_per_game = round(sum(df_player_game_stats["powerPlayAssists"])/len(df_player_game_stats), 2)
+    df_player_game_stats_pp_assists_per_60min = round((sum(df_player_game_stats["powerPlayAssists"])/len(df_player_game_stats))/np.mean(df_player_game_stats["toi_float"]) * 60., 2)
+    df_player_game_stats_shooting_percentage = round(sum(df_player_game_stats["goals"])/sum(df_player_game_stats["shots"])*100., 2)
+
+    # make home game stat per game and per 60
+    df_player_game_stats_home_points_per_game = round(sum(df_player_game_stats_home["points"])/len(df_player_game_stats_home), 2)
+    df_player_game_stats_home_points_per_60min = round((sum(df_player_game_stats_home["points"])/len(df_player_game_stats_home))/np.mean(df_player_game_stats_home["toi_float"]) * 60., 2)
+    df_player_game_stats_home_goals_per_game = round(sum(df_player_game_stats_home["goals"])/len(df_player_game_stats_home), 2)
+    df_player_game_stats_home_goals_per_60min = round((sum(df_player_game_stats_home["goals"])/len(df_player_game_stats_home))/np.mean(df_player_game_stats_home["toi_float"]) * 60., 2)
+    df_player_game_stats_home_assists_per_game = round(sum(df_player_game_stats_home["assists"])/len(df_player_game_stats_home), 2)
+    df_player_game_stats_home_assists_per_60min = round((sum(df_player_game_stats_home["assists"])/len(df_player_game_stats_home))/np.mean(df_player_game_stats_home["toi_float"]) * 60., 2)
+    df_player_game_stats_home_shots_per_game = round(sum(df_player_game_stats_home["shots"])/len(df_player_game_stats_home), 2)
+    df_player_game_stats_home_shots_per_60min = round((sum(df_player_game_stats_home["shots"])/len(df_player_game_stats_home))/np.mean(df_player_game_stats_home["toi_float"]) * 60., 2)
+    df_player_game_stats_home_pm_per_game = round(sum(df_player_game_stats_home["plusMinus"])/len(df_player_game_stats_home), 2)
+    df_player_game_stats_home_pm_per_60min = round((sum(df_player_game_stats_home["plusMinus"])/len(df_player_game_stats_home))/np.mean(df_player_game_stats_home["toi_float"]) * 60., 2)
+    df_player_game_stats_home_pp_points_per_game = round(sum(df_player_game_stats_home["powerPlayPoints"])/len(df_player_game_stats_home), 2)
+    df_player_game_stats_home_pp_points_per_60min = round((sum(df_player_game_stats_home["powerPlayPoints"])/len(df_player_game_stats_home))/np.mean(df_player_game_stats_home["toi_float"]) * 60., 2)
+    df_player_game_stats_home_pp_goals_per_game = round(sum(df_player_game_stats_home["powerPlayGoals"])/len(df_player_game_stats_home), 2)
+    df_player_game_stats_home_pp_goals_per_60min = round((sum(df_player_game_stats_home["powerPlayGoals"])/len(df_player_game_stats_home))/np.mean(df_player_game_stats_home["toi_float"]) * 60., 2)
+    df_player_game_stats_home_pp_assists_per_game = round(sum(df_player_game_stats_home["powerPlayAssists"])/len(df_player_game_stats_home), 2)
+    df_player_game_stats_home_pp_assists_per_60min = round((sum(df_player_game_stats_home["powerPlayAssists"])/len(df_player_game_stats_home))/np.mean(df_player_game_stats_home["toi_float"]) * 60., 2)
+    df_player_game_stats_home_shooting_percentage = round(sum(df_player_game_stats_home["goals"])/sum(df_player_game_stats_home["shots"])*100., 2)
+
+    # make road game stat per game and per 60
+    df_player_game_stats_road_points_per_game = round(sum(df_player_game_stats_road["points"])/len(df_player_game_stats_road), 2)
+    df_player_game_stats_road_points_per_60min = round((sum(df_player_game_stats_road["points"])/len(df_player_game_stats_road))/np.mean(df_player_game_stats_road["toi_float"]) * 60., 2)
+    df_player_game_stats_road_goals_per_game = round(sum(df_player_game_stats_road["goals"])/len(df_player_game_stats_road), 2)
+    df_player_game_stats_road_goals_per_60min = round((sum(df_player_game_stats_road["goals"])/len(df_player_game_stats_road))/np.mean(df_player_game_stats_road["toi_float"]) * 60., 2)
+    df_player_game_stats_road_assists_per_game = round(sum(df_player_game_stats_road["assists"])/len(df_player_game_stats_road), 2)
+    df_player_game_stats_road_assists_per_60min = round((sum(df_player_game_stats_road["assists"])/len(df_player_game_stats_road))/np.mean(df_player_game_stats_road["toi_float"]) * 60., 2)
+    df_player_game_stats_road_shots_per_game = round(sum(df_player_game_stats_road["shots"])/len(df_player_game_stats_road), 2)
+    df_player_game_stats_road_shots_per_60min = round((sum(df_player_game_stats_road["shots"])/len(df_player_game_stats_road))/np.mean(df_player_game_stats_road["toi_float"]) * 60., 2)
+    df_player_game_stats_road_pm_per_game = round(sum(df_player_game_stats_road["plusMinus"])/len(df_player_game_stats_road), 2)
+    df_player_game_stats_road_pm_per_60min = round((sum(df_player_game_stats_road["plusMinus"])/len(df_player_game_stats_road))/np.mean(df_player_game_stats_road["toi_float"]) * 60., 2)
+    df_player_game_stats_road_pp_points_per_game = round(sum(df_player_game_stats_road["powerPlayPoints"])/len(df_player_game_stats_road), 2)
+    df_player_game_stats_road_pp_points_per_60min = round((sum(df_player_game_stats_road["powerPlayPoints"])/len(df_player_game_stats_road))/np.mean(df_player_game_stats_road["toi_float"]) * 60., 2)
+    df_player_game_stats_road_pp_goals_per_game = round(sum(df_player_game_stats_road["powerPlayGoals"])/len(df_player_game_stats_road), 2)
+    df_player_game_stats_road_pp_goals_per_60min = round((sum(df_player_game_stats_road["powerPlayGoals"])/len(df_player_game_stats_road))/np.mean(df_player_game_stats_road["toi_float"]) * 60., 2)
+    df_player_game_stats_road_pp_assists_per_game = round(sum(df_player_game_stats_road["powerPlayAssists"])/len(df_player_game_stats_road), 2)
+    df_player_game_stats_road_pp_assists_per_60min = round((sum(df_player_game_stats_road["powerPlayAssists"])/len(df_player_game_stats_road))/np.mean(df_player_game_stats_road["toi_float"]) * 60., 2)
+    df_player_game_stats_road_shooting_percentage = round(sum(df_player_game_stats_road["goals"])/sum(df_player_game_stats_road["shots"])*100., 2)
+
+
+    table = PrettyTable(['Stat', 'All Games', "Home Games", "Away Games"])
+    table.title = "Home vs. Road Stat Split"
+    table.add_row(['# of games', len(df_player_game_stats), len(df_player_game_stats_home), len(df_player_game_stats_road)])
+    table.add_row(['Average TOI [minutes]', round(np.mean(df_player_game_stats["toi_float"]), 2), round(np.mean(df_player_game_stats_home["toi_float"]), 2), round(np.mean(df_player_game_stats_road["toi_float"]), 2)])
+    table.add_row(['Average # of Shifts', round(np.mean(df_player_game_stats["shifts"]), 2), round(np.mean(df_player_game_stats_home["shifts"]), 2), round(np.mean(df_player_game_stats_road["shifts"]), 2)])
+    table.add_divider()
+    table.add_row(['Total Points', sum(df_player_game_stats["points"]), sum(df_player_game_stats_home["points"]), sum(df_player_game_stats_road["points"])])
+    table.add_row(['Total Points per Game', df_player_game_stats_points_per_game, df_player_game_stats_home_points_per_game, df_player_game_stats_road_points_per_game])
+    table.add_row(['Total Points per 60 minutes', df_player_game_stats_points_per_60min, df_player_game_stats_home_points_per_60min, df_player_game_stats_road_points_per_60min])
+    table.add_divider()
+    table.add_row(['Total Goals', sum(df_player_game_stats["goals"]), sum(df_player_game_stats_home["goals"]), sum(df_player_game_stats_road["goals"])])
+    table.add_row(['Total Goals per Game', df_player_game_stats_goals_per_game, df_player_game_stats_home_goals_per_game, df_player_game_stats_road_goals_per_game])
+    table.add_row(['Total Goals per 60 minutes', df_player_game_stats_goals_per_60min, df_player_game_stats_home_goals_per_60min, df_player_game_stats_road_goals_per_60min])
+    table.add_divider()
+    table.add_row(['Total Assists', sum(df_player_game_stats["assists"]), sum(df_player_game_stats_home["assists"]), sum(df_player_game_stats_road["assists"])])
+    table.add_row(['Total Assists per Game', df_player_game_stats_assists_per_game, df_player_game_stats_home_assists_per_game, df_player_game_stats_road_assists_per_game])
+    table.add_row(['Total Assists per 60 minutes', df_player_game_stats_assists_per_60min, df_player_game_stats_home_assists_per_60min, df_player_game_stats_road_assists_per_60min])
+    table.add_divider()
+    table.add_row(['Total PP Points', sum(df_player_game_stats["powerPlayPoints"]), sum(df_player_game_stats_home["powerPlayPoints"]), sum(df_player_game_stats_road["powerPlayPoints"])])
+    table.add_row(['Total PP Points per Game', df_player_game_stats_pp_points_per_game, df_player_game_stats_home_pp_points_per_game, df_player_game_stats_road_pp_points_per_game])
+    table.add_row(['Total PP Points per 60 minutes', df_player_game_stats_pp_points_per_60min, df_player_game_stats_home_pp_points_per_60min, df_player_game_stats_road_pp_points_per_60min])
+    table.add_divider()
+    table.add_row(['Total PP Goals', sum(df_player_game_stats["powerPlayGoals"]), sum(df_player_game_stats_home["powerPlayGoals"]), sum(df_player_game_stats_road["powerPlayGoals"])])
+    table.add_row(['Total PP Goals per Game', df_player_game_stats_pp_goals_per_game, df_player_game_stats_home_pp_goals_per_game, df_player_game_stats_road_pp_goals_per_game])
+    table.add_row(['Total PP Goals per 60 minutes', df_player_game_stats_pp_goals_per_60min, df_player_game_stats_home_pp_goals_per_60min, df_player_game_stats_road_pp_goals_per_60min])
+    table.add_divider()
+    table.add_row(['Total PP Assists', sum(df_player_game_stats["powerPlayAssists"]), sum(df_player_game_stats_home["powerPlayAssists"]), sum(df_player_game_stats_road["powerPlayAssists"])])
+    table.add_row(['Total PP Assists per Game', df_player_game_stats_pp_assists_per_game, df_player_game_stats_home_pp_assists_per_game, df_player_game_stats_road_pp_assists_per_game])
+    table.add_row(['Total PP Assists per 60 minutes', df_player_game_stats_pp_assists_per_60min, df_player_game_stats_home_pp_assists_per_60min, df_player_game_stats_road_pp_assists_per_60min])
+    table.add_divider()
+    table.add_row(['Total Shots', sum(df_player_game_stats["shots"]), sum(df_player_game_stats_home["shots"]), sum(df_player_game_stats_road["shots"])])
+    table.add_row(['Total Shots per Game', df_player_game_stats_shots_per_game, df_player_game_stats_home_shots_per_game, df_player_game_stats_road_shots_per_game])
+    table.add_row(['Total Shots per 60 minutes', df_player_game_stats_shots_per_60min, df_player_game_stats_home_shots_per_60min, df_player_game_stats_road_shots_per_60min])
+    table.add_row(['Total Shooting %', df_player_game_stats_shooting_percentage, df_player_game_stats_home_shooting_percentage, df_player_game_stats_road_shooting_percentage])
+    #table.set_style(DOUBLE_BORDER)
+    print(table)
