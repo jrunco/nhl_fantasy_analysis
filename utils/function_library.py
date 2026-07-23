@@ -4,6 +4,7 @@ import pandas as pd
 
 import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 from tabulate import tabulate
 from prettytable import PrettyTable, TableStyle
@@ -282,7 +283,44 @@ def skater_single_season_fantasy_points(skater_name,
     return tot_fantasy_points
 
 
-def get_stats_by_season(player_id):
+def get_stats_by_season(player_id, path_to_team_images):
+
+    path_to_images = path_to_team_images
+
+    images = {
+        "Anaheim Ducks": path_to_images+"anaheim_ducks.png",
+        "Boston Bruins": path_to_images+"boston_bruins.png",
+        "Buffalo Sabres": path_to_images+"buffalo_sabres.png",
+        "Calgary Flames": path_to_images+"calgary_flames.png",
+        "Carolina Hurricanes": path_to_images+"carolina_hurricanes.png",
+        "Chicago Blackhawks": path_to_images+"chicago_blackhawks.png",
+        "Colorado Avalanche": path_to_images+"colorado_avalanche.png",
+        "Columbus Blue Jackets": path_to_images+"columbus_blue_jackets.png",
+        "Dallas Stars": path_to_images+"dallas_stars.png",
+        "Detroit Red Wings": path_to_images+"detroit_red_wings.png",
+        "Edmonton Oilers": path_to_images+"edmonton_oilers.png",
+        "Florida Panthers": path_to_images+"florida_panthers.png",
+        "Los Angeles Kings": path_to_images+"los_angeles_kings.png",
+        "Minnesota Wild": path_to_images+"minnesota_wild.png",
+        "Montréal Canadiens": path_to_images+"montreal_canadiens.png",
+        "Nashville Predators": path_to_images+"nashville_predators.png",
+        "New Jersey Devils": path_to_images+"new_jersey_devils.png",
+        "New York Islanders": path_to_images+"new_york_islanders.png",
+        "New York Rangers": path_to_images+"new_york_rangers.png",
+        "Ottawa Senators": path_to_images+"ottawa_senators.png",
+        "Philadelphia Flyers": path_to_images+"philadelphia_flyers.png",
+        "Pittsburgh Penguins": path_to_images+"pittsburgh_penguins.png",
+        "San Jose Sharks": path_to_images+"san_jose_sharks.png",
+        "Seattle Kraken": path_to_images+"seattle_kraken.png",
+        "St. Louis Blues": path_to_images+"st_louis_blues.png",
+        "Tampa Bay Lightning": path_to_images+"tampa_bay_lightning.png",
+        "Toronto Maple Leafs": path_to_images+"toronto_maple_leafs.png",
+        "Utah Mammoth": path_to_images+"utah_mammoth.png",
+        "Vancouver Canucks": path_to_images+"vancouver_canucks.png",
+        "Vegas Golden Knights": path_to_images+"vegas_golden_knights.png",
+        "Washington Capitals": path_to_images+"washington_capitals.png",
+        "Winnipeg Jets": path_to_images+"winnipeg_jets.png"
+    }
 
     client = NHLClient(debug=False)
 
@@ -342,10 +380,58 @@ def get_stats_by_season(player_id):
         minutes[i], seconds[i] = map(int, df_nhl_rs_career_stats["avgToi"].values[i].split(":"))
     df_nhl_rs_career_stats["avgToi_float"] = minutes + (seconds / 60.)
 
+    # set up data to plot images
+    df_nhl_rs_career_stats["team_img"] = df_nhl_rs_career_stats["team_names"].map(images)
+    df_nhl_rs_career_stats["season_plot"] = df_nhl_rs_career_stats["season"].astype(str).str[:4].astype(int)
+
     return df_nhl_rs_career_stats
 
 
 def plot_stat_per_game(ax, ax_str, df, include_avg, stat, title, ylabel):
+
+    for x, y, path in zip(df["season_plot"], df[stat], df["team_img"]):
+        try:
+            # Load image array
+            img_array = plt.imread(path)
+
+            # Wrap image in OffsetImage. Use 'zoom' to scale its visual size.
+            img_box = OffsetImage(img_array, zoom=0.05)
+
+            # Position the box at the specific (x, y) data point
+            ab = AnnotationBbox(img_box, (x, y), frameon=False, zorder=100)
+
+            # Add the custom marker to your plot
+            ax.add_artist(ab)
+        except FileNotFoundError:
+            print(f"Warning: {path} not found. Skipping point ({x}, {y}).")
+
+    if include_avg:
+        ax.axhline(y=np.mean(df[stat]), color='tab:green', linewidth=8, zorder=10)
+        #plt.axhline(y=np.mean(df["goals"][1:]), color='tab:green', linewidth=2) # this would exclude their rookie season from the average
+
+        ax.axhline(y=np.mean(df[stat])+np.std(df[stat]), color='tab:green', linestyle='--', linewidth=4, zorder=10)
+        ax.axhline(y=np.mean(df[stat])-np.std(df[stat]), color='tab:green', linestyle='--', linewidth=4, zorder=10)
+        ax.fill_between(df["season_plot"], np.mean(df[stat])+np.std(df[stat]),
+            np.mean(df[stat])-np.std(df[stat]), color="gray", alpha=0.3, zorder=1)
+
+    # set xlim and ylim
+    xmin, xmax = min(df["season_plot"]), max(df["season_plot"])
+    ymin, ymax = min(df[stat]), max(df[stat])
+    x_pad = (xmax - xmin) * 0.1
+    y_pad = (ymax - ymin) * 0.1
+    ax.set_xlim(xmin - x_pad, xmax + x_pad)
+    ax.set_ylim(ymin - y_pad, ymax + y_pad)
+
+    ax.set_title(title)
+    ax.set_xlabel("Season")
+    ax.set_ylabel(ylabel)
+    #ax.set_xticks(df["season"], df["season_label"])
+    ax.tick_params(axis='x', labelrotation=45)
+    ax.grid(True, alpha=0.3)
+
+
+"""
+def plot_stat_per_game_no_team_pics(ax, ax_str, df, include_avg, stat, title, ylabel):
 
     if ax_str == "ax1":
         sns.scatterplot(data=df, x="season", y=stat, s=200, hue="team_names", ax=ax, zorder=100)
@@ -375,26 +461,6 @@ def plot_stat_per_game(ax, ax_str, df, include_avg, stat, title, ylabel):
         #ax.legend(loc='upper center', frameon=False, bbox_to_anchor(0.5, 1.02), ncols=4)
         ax.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left', ncols=2, mode="expand", borderaxespad=1.)
     #plt.subplots_adjust(top=0.90)
-    #plt.show()
-"""
-def plot_stat_per_game(df, stat, title, ylabel):
-
-    g = sns.lmplot(data=df, x="season", y=stat, hue="team_names", fit_reg=False, ci=None)#, zorder=100)
-    g._legend.set_title("Team Names")
-
-    plt.axhline(y=np.mean(df[stat]), color='tab:green', linewidth=2, zorder=10)
-    #plt.axhline(y=np.mean(df["goals"][1:]), color='tab:green', linewidth=2) # this would exclude their rookie season from the average
-
-    plt.axhline(y=np.mean(df[stat])+np.std(df[stat]), color='tab:green', linestyle='--', linewidth=1, zorder=10)
-    plt.axhline(y=np.mean(df[stat])-np.std(df[stat]), color='tab:green', linestyle='--', linewidth=1, zorder=10)
-    plt.fill_between(df["season"], np.mean(df[stat])+np.std(df[stat]),
-        np.mean(df[stat])-np.std(df[stat]), color="gray", alpha=0.3, zorder=1)
-
-    plt.title(title)
-    plt.xlabel("Season")
-    plt.ylabel(ylabel)
-    plt.xticks(df["season"], df["season_label"])
-    plt.xticks(rotation=45)
     #plt.show()
 """
 

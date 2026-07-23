@@ -131,6 +131,67 @@ df_nhl_rs_career_stats["avgToi_float"] = minutes + (seconds / 60.)
 # TODO: add if statement to not add average line if player has played less than 3 years
 # TODO: maybe not put rookie season in averages
 
+
+
+def plot_stat_per_game(ax, ax_str, df, include_avg, stat, title, ylabel):
+
+    if ax_str == "ax1":
+        sns.scatterplot(data=df, x="season", y=stat, s=200, hue="team_names", ax=ax, zorder=100)
+    else:
+        sns.scatterplot(data=df, x="season", y=stat, s=200, hue="team_names", ax=ax, legend=False, zorder=100)
+    #sns._legend.set_title("Team Names")
+
+    if include_avg:
+        ax.axhline(y=np.mean(df[stat]), color='tab:green', linewidth=8, zorder=10)
+        #plt.axhline(y=np.mean(df["goals"][1:]), color='tab:green', linewidth=2) # this would exclude their rookie season from the average
+
+        ax.axhline(y=np.mean(df[stat])+np.std(df[stat]), color='tab:green', linestyle='--', linewidth=4, zorder=10)
+        ax.axhline(y=np.mean(df[stat])-np.std(df[stat]), color='tab:green', linestyle='--', linewidth=4, zorder=10)
+        ax.fill_between(df["season"], np.mean(df[stat])+np.std(df[stat]),
+            np.mean(df[stat])-np.std(df[stat]), color="gray", alpha=0.3, zorder=1)
+
+    ax.set_title(title)
+    ax.set_xlabel("Season")
+    ax.set_ylabel(ylabel)
+    ax.set_xticks(df["season"], df["season_label"])
+    ax.tick_params(axis='x', labelrotation=45)
+    if ax_str == "ax1":
+        # simple legend
+        #ax.legend(frameon=False)
+
+        # fancier legend. need plt.subplots adjust for this one
+        #ax.legend(loc='upper center', frameon=False, bbox_to_anchor(0.5, 1.02), ncols=4)
+        ax.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left', ncols=2, mode="expand", borderaxespad=1.)
+    #plt.subplots_adjust(top=0.90)
+    #plt.show()
+
+
+
+fig, ((ax1, ax2), (ax3, ax4), (ax5, ax6),) = plt.subplots(nrows=3, ncols=2, figsize=(24, 30))
+
+plot_stat_per_game(ax1, "ax1", df_skater_career_stats, True, "even_strength_points", "Even Strength Points per Season", "Even Strength Points")
+plot_stat_per_game(ax2, "ax2", df_skater_career_stats, True, "even_strength_points_per_game", "Even Strength Points/Game per Season", "Even Strength Points/Game")
+plot_stat_per_game(ax3, "ax3", df_skater_career_stats, True, "even_strength_goals", "Even Strength Goals per Season", "Even Strength Goals")
+plot_stat_per_game(ax4, "ax4", df_skater_career_stats, True, "even_strength_goals_per_game", "Even Strength Goals/Game per Season", "Even Strength Goals/Game")
+plot_stat_per_game(ax5, "ax5", df_skater_career_stats, True, "even_strength_assists", "Even Strength Assists per Season", "Even Strength Assists")
+plot_stat_per_game(ax6, "ax6", df_skater_career_stats, True, "even_strength_assists_per_game", "Even Strength Assists/Game per Season", "Even Strength Assists/Game")
+
+fig.tight_layout()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 ## make some cool plots
 sns.lmplot(data=df_nhl_rs_career_stats, x="season", y="goals")
 plt.title("Goals per Season")
@@ -236,7 +297,7 @@ for i in range(len(df_nhl_rs_career_stats)):
 
 
 df_nhl_rs_career_stats_season_group = df_nhl_rs_career_stats.groupby('season').sum().reset_index() # this will make the /game stats wrong
-
+"""
 
 
 
