@@ -6,9 +6,22 @@ This NHL analytics and fantasy hockey tool. Use it to:
 
 To use this tool do the following:
 1. clone this repo
-2. use the environment.yml file to set up the conda environment
-  $ `conda env create -f environment.yml`
-3. run main.ipynb in a jupyter notebook
+2. in a terminal window use the environment.yml file to set up the conda environment
+
+  `conda env create -f environment.yml`
+
+3. run main.ipynb in a jupyter notebook. To run this do the following:
+
+  a) type `jupyter notebook` in a terminal window (same directory where main.ipynb is). This will open a jupyter notebook session in a web browser
+
+  b) in the web browser jupyter notebook session click on main.ipynb
+
+  c) in cell 3) change the default fantasy scoring system to your league system
+
+  d) in cell 4) change the default skater and regular season to what you want to analyze
+
+  e) click "kernel" then "restart and run all" to run the kernel. 
+
 
 Note: do not change the folder structure and what files are stored where. This is needed to accurately grab pngs of NHL logos to plot.
 
