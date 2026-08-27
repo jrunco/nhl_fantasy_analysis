@@ -8,6 +8,7 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 from tabulate import tabulate
 from prettytable import PrettyTable, TableStyle
+from IPython.display import display, HTML
 
 from nhlpy.nhl_client import NHLClient
 
@@ -58,6 +59,43 @@ def toi_string_to_float(df, str_param_name, float_param_name):
     df[float_param_name] = minutes + (seconds / 60.)
 
     return df
+
+
+def format_table_stats(stat_arr, stat_name):
+
+    idx_max = np.argmax(stat_arr)+1
+    idx_min = np.argmin(stat_arr)+1
+
+    stat_arr_obj = stat_arr.astype(object)
+    #stat_arr_obj = np.array([f"{x:.2f}" for x in stat_arr_obj], dtype=object)
+    stat_arr_obj = np.array([f"{x:g}" for x in stat_arr_obj], dtype=object)
+    stat_arr_obj = np.insert(stat_arr_obj, 0, stat_name)
+    '''
+    # Find index of the largest value
+    stat_arr = np.insert(stat_arr, 0, -9999.)
+    idx_max = np.argmax(stat_arr)
+    # Find index of the smallest value
+    stat_arr[0] = np.inf
+    idx_min = np.argmin(stat_arr)
+    '''
+    # Create row data, bolding the largest value
+    '''
+    row_data = [
+        str(val) if i != idx_max else f"\033[1;92m{val}\033[0m"
+        #str(val) if i != idx_max f"\033[1;31m{val}\033[0m" elif i != idx_min else f"\033[1;92m{val}\033[0m"
+        for i, val in enumerate(stat_arr_obj)
+    ]
+    '''
+    row_data = [""] * len(stat_arr_obj)
+    for i, val in enumerate(stat_arr_obj):
+        if i == idx_max:
+            row_data[i] = f"\033[1;92m{val}\033[0m"
+        elif i == idx_min:
+            row_data[i] = f"\033[1;31m{val}\033[0m"
+        else:
+            row_data[i] = str(val)
+
+    return row_data
 
 
 def load_summary_statistics_for_skaters(season_start, season_end, limit: int = 100):
@@ -171,7 +209,7 @@ def skater_single_season_fantasy_points(skater_name,
     fantasy_points_assists,
     fantasy_points_plusminus,
     fantasy_points_pp_goals,
-    fantasy_points_pp_asists,
+    fantasy_points_pp_assists,
     fantasy_points_sh_goals,
     fantasy_points_sh_assists,
     fantasy_points_game_winning_goals,
@@ -187,21 +225,6 @@ def skater_single_season_fantasy_points(skater_name,
 
     start_season = season
     end_season = season
-
-    fantasy_goals = float(fantasy_points_goals)
-    fantasy_assists = float(fantasy_points_assists)
-    fantasy_plusminus = float(fantasy_points_plusminus)
-    fantasy_pp_goals = float(fantasy_points_pp_goals)
-    fantasy_pp_assists = float(fantasy_points_pp_asists)
-    fantasy_sh_goals = float(fantasy_points_sh_goals)
-    fantasy_sh_assists = float(fantasy_points_sh_assists)
-    fantasy_game_winning_goals = float(fantasy_points_game_winning_goals)
-    fantasy_shots = float(fantasy_points_shots)
-    fantasy_hits = float(fantasy_points_hits)
-    fantasy_blocks = float(fantasy_points_blocks)
-    fantasy_fowins = float(fantasy_points_fowins)
-    fantasy_folosses = float(fantasy_points_folosses)
-    fantasy_pims = float(fantasy_points_pims)
 
     # do an initial query to see if player name exists
 
@@ -240,47 +263,360 @@ def skater_single_season_fantasy_points(skater_name,
     if name_grabbed == "N/A":
         print("Skater not found: error in defining player name or season")
     else:
-        tot_fantasy_points = (season_goals*fantasy_goals
-            + season_assists*fantasy_assists
-            + season_plusMinus*fantasy_plusminus
-            + season_ppGoals*fantasy_pp_goals
-            + season_ppAssists*fantasy_pp_assists
-            + season_shGoals*fantasy_sh_goals
-            + season_shAssists*fantasy_sh_assists
-            + season_gameWinningGoals*fantasy_game_winning_goals
-            + season_shots*fantasy_shots
-            + season_hits*fantasy_hits
-            + season_blockedShots*fantasy_blocks
-            + season_totalFaceoffWins*fantasy_fowins
-            + season_totalFaceoffLosses*fantasy_folosses
-            + season_penaltyMinutes*fantasy_pims
+        tot_fantasy_points = (season_goals*fantasy_points_goals
+            + season_assists*fantasy_points_assists
+            + season_plusMinus*fantasy_points_plusminus
+            + season_ppGoals*fantasy_points_pp_goals
+            + season_ppAssists*fantasy_points_pp_assists
+            + season_shGoals*fantasy_points_sh_goals
+            + season_shAssists*fantasy_points_sh_assists
+            + season_gameWinningGoals*fantasy_points_game_winning_goals
+            + season_shots*fantasy_points_shots
+            + season_hits*fantasy_points_hits
+            + season_blockedShots*fantasy_points_blocks
+            + season_totalFaceoffWins*fantasy_points_fowins
+            + season_totalFaceoffLosses*fantasy_points_folosses
+            + season_penaltyMinutes*fantasy_points_pims
             )
-        print("%s fantasy points = %s" % (name_grabbed, tot_fantasy_points))
+        print(f"\033[1m%s fantasy points = %s\033[0m" % (name_grabbed, tot_fantasy_points))
         print(" ")
         print("# of games played = %s" % (season_gamesPlayed))
-        print("Fantasy points per game = %s" % ((tot_fantasy_points/season_gamesPlayed)))
+        print("Fantasy points per game = %s" % (round((tot_fantasy_points/season_gamesPlayed), 2)))
         print(" ")
         print(" ")
         table = PrettyTable(['Stat Name', 'Total Stats', 'Fantasy Points', 'Stats / Game', 'Fantasy Points / Game'])
         table.title = "Fantasy Points Breakdown by Stat"
-        table.add_row(['Goals', season_goals, round((season_goals*fantasy_goals), 2), round(season_goals/season_gamesPlayed, 2), round((season_goals*fantasy_goals)/season_gamesPlayed, 2)])
-        table.add_row(['Assists', season_assists, round((season_assists*fantasy_assists), 2), round(season_assists/season_gamesPlayed, 2), round((season_assists*fantasy_assists)/season_gamesPlayed, 2)])
-        table.add_row(['Plus/Minus', season_plusMinus, round((season_plusMinus*fantasy_plusminus), 2), round(season_plusMinus/season_gamesPlayed, 2), round((season_plusMinus*fantasy_plusminus)/season_gamesPlayed, 2)])
-        table.add_row(['Bonus for PP Goals', season_ppGoals, round((season_ppGoals*fantasy_pp_goals), 2), round(season_ppGoals/season_gamesPlayed, 2), round((season_ppGoals*fantasy_pp_goals)/season_gamesPlayed, 2)])
-        table.add_row(['Bonus for PP Assists', season_ppAssists, round((season_ppAssists*fantasy_pp_assists), 2), round(season_ppAssists/season_gamesPlayed, 2), round((season_ppAssists*fantasy_pp_assists)/season_gamesPlayed, 2)])
-        table.add_row(['Bonus for SH Goals', season_shGoals, round((season_shGoals*fantasy_sh_goals), 2), round(season_shGoals/season_gamesPlayed, 2), round((season_shGoals*fantasy_sh_goals)/season_gamesPlayed, 2)])
-        table.add_row(['Bonus for SH Assists', season_shAssists, round((season_shAssists*fantasy_sh_assists), 2), round(season_shAssists/season_gamesPlayed, 2), round((season_shAssists*fantasy_sh_assists)/season_gamesPlayed, 2)])
-        table.add_row(['Bonus for Game Winning Goals', season_gameWinningGoals, round((season_gameWinningGoals*fantasy_game_winning_goals), 2), round(season_gameWinningGoals/season_gamesPlayed, 2), round((season_gameWinningGoals*fantasy_game_winning_goals)/season_gamesPlayed, 2)])
-        table.add_row(['Shots', season_shots, round((season_shots*fantasy_shots), 2), round(season_shots/season_gamesPlayed, 2), round((season_shots*fantasy_shots)/season_gamesPlayed, 2)])
-        table.add_row(['Hits', season_hits, round((season_hits*fantasy_hits), 2), round(season_hits/season_gamesPlayed, 2), round((season_hits*fantasy_hits)/season_gamesPlayed, 2)])
-        table.add_row(['Blocks', season_blockedShots, round((season_blockedShots*fantasy_blocks), 2), round(season_blockedShots/season_gamesPlayed, 2), round((season_blockedShots*fantasy_blocks)/season_gamesPlayed, 2)])
-        table.add_row(['Face-offs', (season_totalFaceoffWins-season_totalFaceoffLosses), round(((season_totalFaceoffWins*fantasy_fowins)+(season_totalFaceoffLosses*fantasy_folosses)), 2), round((season_totalFaceoffWins-season_totalFaceoffLosses)/season_gamesPlayed, 2), round(((season_totalFaceoffWins*fantasy_fowins)+(season_totalFaceoffLosses*fantasy_folosses))/season_gamesPlayed, 2)])
-        table.add_row(['PIMs', season_penaltyMinutes, round((season_penaltyMinutes*fantasy_pims), 2), round(season_penaltyMinutes/season_gamesPlayed, 2), round((season_penaltyMinutes*fantasy_pims)/season_gamesPlayed, 2)])
+        table.add_row(['Goals', season_goals, round((season_goals*fantasy_points_goals), 2), round(season_goals/season_gamesPlayed, 2), round((season_goals*fantasy_points_goals)/season_gamesPlayed, 2)])
+        table.add_row(['Assists', season_assists, round((season_assists*fantasy_points_assists), 2), round(season_assists/season_gamesPlayed, 2), round((season_assists*fantasy_points_assists)/season_gamesPlayed, 2)])
+        table.add_row(['Plus/Minus', season_plusMinus, round((season_plusMinus*fantasy_points_plusminus), 2), round(season_plusMinus/season_gamesPlayed, 2), round((season_plusMinus*fantasy_points_plusminus)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for PP Goals', season_ppGoals, round((season_ppGoals*fantasy_points_pp_goals), 2), round(season_ppGoals/season_gamesPlayed, 2), round((season_ppGoals*fantasy_points_pp_goals)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for PP Assists', season_ppAssists, round((season_ppAssists*fantasy_points_pp_assists), 2), round(season_ppAssists/season_gamesPlayed, 2), round((season_ppAssists*fantasy_points_pp_assists)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for SH Goals', season_shGoals, round((season_shGoals*fantasy_points_sh_goals), 2), round(season_shGoals/season_gamesPlayed, 2), round((season_shGoals*fantasy_points_sh_goals)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for SH Assists', season_shAssists, round((season_shAssists*fantasy_points_sh_assists), 2), round(season_shAssists/season_gamesPlayed, 2), round((season_shAssists*fantasy_points_sh_assists)/season_gamesPlayed, 2)])
+        table.add_row(['Bonus for Game Winning Goals', season_gameWinningGoals, round((season_gameWinningGoals*fantasy_points_game_winning_goals), 2), round(season_gameWinningGoals/season_gamesPlayed, 2), round((season_gameWinningGoals*fantasy_points_game_winning_goals)/season_gamesPlayed, 2)])
+        table.add_row(['Shots', season_shots, round((season_shots*fantasy_points_shots), 2), round(season_shots/season_gamesPlayed, 2), round((season_shots*fantasy_points_shots)/season_gamesPlayed, 2)])
+        table.add_row(['Hits', season_hits, round((season_hits*fantasy_points_hits), 2), round(season_hits/season_gamesPlayed, 2), round((season_hits*fantasy_points_hits)/season_gamesPlayed, 2)])
+        table.add_row(['Blocks', season_blockedShots, round((season_blockedShots*fantasy_points_blocks), 2), round(season_blockedShots/season_gamesPlayed, 2), round((season_blockedShots*fantasy_points_blocks)/season_gamesPlayed, 2)])
+        table.add_row(['Face-offs', (season_totalFaceoffWins-season_totalFaceoffLosses), round(((season_totalFaceoffWins*fantasy_points_fowins)+(season_totalFaceoffLosses*fantasy_points_folosses)), 2), round((season_totalFaceoffWins-season_totalFaceoffLosses)/season_gamesPlayed, 2), round(((season_totalFaceoffWins*fantasy_points_fowins)+(season_totalFaceoffLosses*fantasy_points_folosses))/season_gamesPlayed, 2)])
+        table.add_row(['PIMs', season_penaltyMinutes, round((season_penaltyMinutes*fantasy_points_pims), 2), round(season_penaltyMinutes/season_gamesPlayed, 2), round((season_penaltyMinutes*fantasy_points_pims)/season_gamesPlayed, 2)])
         #table.add_divider()
         #table.set_style(DOUBLE_BORDER)
         print(table)
 
     return tot_fantasy_points
+
+
+def comp_multi_skaters(skater_names,
+    season,
+    fantasy_points_goals,
+    fantasy_points_assists,
+    fantasy_points_plusminus,
+    fantasy_points_pp_goals,
+    fantasy_points_pp_assists,
+    fantasy_points_sh_goals,
+    fantasy_points_sh_assists,
+    fantasy_points_game_winning_goals,
+    fantasy_points_shots,
+    fantasy_points_hits,
+    fantasy_points_blocks,
+    fantasy_points_fowins,
+    fantasy_points_folosses,
+    fantasy_points_pims,
+    ):
+
+    start_season = season
+    end_season = season
+
+    # do an initial query to see if player name exists
+
+    skater_summary_query = load_summary_statistics_for_skaters(start_season, end_season)
+    skater_realtime_query = load_realtime_statistics_for_skaters(start_season, end_season)
+    skater_faceoffwins_query = load_faceoffwins_statistics_for_skaters(start_season, end_season)
+
+    skater_names_grabbed = ["N/A"] * len(skater_names)
+    skater_season_gamesPlayed = np.zeros(len(skater_names))
+    skater_season_timeOnIcePerGame = np.zeros(len(skater_names))
+    skater_season_timeOnIcePerGame_min = np.zeros(len(skater_names))
+    skater_season_goals = np.zeros(len(skater_names))
+    skater_season_assists = np.zeros(len(skater_names))
+    skater_season_plusMinus = np.zeros(len(skater_names))
+    skater_season_ppGoals = np.zeros(len(skater_names))
+    skater_season_ppAssists = np.zeros(len(skater_names))
+    skater_season_shGoals = np.zeros(len(skater_names))
+    skater_season_shAssists = np.zeros(len(skater_names))
+    skater_season_gameWinningGoals = np.zeros(len(skater_names))
+    skater_season_shots = np.zeros(len(skater_names))
+    skater_season_penaltyMinutes = np.zeros(len(skater_names))
+    skater_season_blockedShots = np.zeros(len(skater_names))
+    skater_season_hits = np.zeros(len(skater_names))
+    skater_season_totalFaceoffWins = np.zeros(len(skater_names))
+    skater_season_totalFaceoffLosses = np.zeros(len(skater_names))
+
+    for name in range(len(skater_names)):
+        for i in range(len(skater_summary_query)):
+            if skater_summary_query[i]["skaterFullName"] == skater_names[name]:
+                skater_names_grabbed[name] = skater_summary_query[i]["skaterFullName"]
+                skater_season_timeOnIcePerGame[name] = skater_summary_query[i]["timeOnIcePerGame"]
+                skater_season_timeOnIcePerGame_min[name] = round(skater_summary_query[i]["timeOnIcePerGame"]/60., 2)
+                skater_season_gamesPlayed[name] = skater_summary_query[i]["gamesPlayed"]
+                skater_season_goals[name] = skater_summary_query[i]["goals"]
+                skater_season_assists[name] = skater_summary_query[i]["assists"]
+                skater_season_plusMinus[name] = skater_summary_query[i]["plusMinus"]
+                skater_season_ppGoals[name] = skater_summary_query[i]["ppGoals"]
+                skater_season_ppAssists[name] = skater_summary_query[i]["ppPoints"] - skater_summary_query[i]["ppGoals"]
+                skater_season_shGoals[name] = skater_summary_query[i]["shGoals"]
+                skater_season_shAssists[name] = skater_summary_query[i]["shPoints"] - skater_summary_query[i]["shGoals"]
+                skater_season_gameWinningGoals[name] = skater_summary_query[i]["gameWinningGoals"]
+                skater_season_shots[name] = skater_summary_query[i]["shots"]
+                skater_season_penaltyMinutes[name] = skater_summary_query[i]["penaltyMinutes"]
+
+        for i in range(len(skater_realtime_query)):
+            if skater_realtime_query[i]["skaterFullName"] == skater_names[name]:
+                skater_season_blockedShots[name] = skater_realtime_query[i]["blockedShots"]
+                skater_season_hits[name] = skater_realtime_query[i]["hits"]
+
+        for i in range(len(skater_faceoffwins_query)):
+            if skater_faceoffwins_query[i]["skaterFullName"] == skater_names[name]:
+                skater_season_totalFaceoffWins[name] = skater_faceoffwins_query[i]["totalFaceoffWins"]
+                skater_season_totalFaceoffLosses[name] = skater_faceoffwins_query[i]["totalFaceoffLosses"]
+
+        # get the stat / game
+        skater_season_goals_per_game = np.zeros(len(skater_names))
+        skater_season_assists_per_game = np.zeros(len(skater_names))
+        skater_season_plusMinus_per_game = np.zeros(len(skater_names))
+        skater_season_ppGoals_per_game = np.zeros(len(skater_names))
+        skater_season_ppAssists_per_game = np.zeros(len(skater_names))
+        skater_season_shGoals_per_game = np.zeros(len(skater_names))
+        skater_season_shAssists_per_game = np.zeros(len(skater_names))
+        skater_season_gameWinningGoals_per_game = np.zeros(len(skater_names))
+        skater_season_shots_per_game = np.zeros(len(skater_names))
+        skater_season_penaltyMinutes_per_game = np.zeros(len(skater_names))
+        skater_season_blockedShots_per_game = np.zeros(len(skater_names))
+        skater_season_hits_per_game = np.zeros(len(skater_names))
+        skater_season_totalFaceoffWins_per_game = np.zeros(len(skater_names))
+        skater_season_totalFaceoffLosses_per_game = np.zeros(len(skater_names))
+        skater_season_penaltyMinutes_per_game = np.zeros(len(skater_names))
+
+        # get the stat / 60 minutes
+        skater_season_goals_per_60min = np.zeros(len(skater_names))
+        skater_season_assists_per_60min = np.zeros(len(skater_names))
+        skater_season_plusMinus_per_60min = np.zeros(len(skater_names))
+        skater_season_ppGoals_per_60min = np.zeros(len(skater_names))
+        skater_season_ppAssists_per_60min = np.zeros(len(skater_names))
+        skater_season_shGoals_per_60min = np.zeros(len(skater_names))
+        skater_season_shAssists_per_60min = np.zeros(len(skater_names))
+        skater_season_gameWinningGoals_per_60min = np.zeros(len(skater_names))
+        skater_season_shots_per_60min = np.zeros(len(skater_names))
+        skater_season_penaltyMinutes_per_60min = np.zeros(len(skater_names))
+        skater_season_blockedShots_per_60min = np.zeros(len(skater_names))
+        skater_season_hits_per_60min = np.zeros(len(skater_names))
+        skater_season_totalFaceoffWins_per_60min = np.zeros(len(skater_names))
+        skater_season_totalFaceoffLosses_per_60min = np.zeros(len(skater_names))
+        skater_season_penaltyMinutes_per_60min = np.zeros(len(skater_names))
+
+        skater_names_tot_fantasy_points = np.zeros(len(skater_names))
+        skater_names_fantasy_points_per_game = np.zeros(len(skater_names))
+
+    for name in range(len(skater_names)):
+        if skater_names[name] == "N/A":
+            print("Skater %s not found: error in defining player name or season" % (skater_names[name]))
+        else:
+            skater_names_tot_fantasy_points[name] = (skater_season_goals[name]*fantasy_points_goals
+                + skater_season_assists[name]*fantasy_points_assists
+                + skater_season_plusMinus[name]*fantasy_points_plusminus
+                + skater_season_ppGoals[name]*fantasy_points_pp_goals
+                + skater_season_ppAssists[name]*fantasy_points_pp_assists
+                + skater_season_shGoals[name]*fantasy_points_sh_goals
+                + skater_season_shAssists[name]*fantasy_points_sh_assists
+                + skater_season_gameWinningGoals[name]*fantasy_points_game_winning_goals
+                + skater_season_shots[name]*fantasy_points_shots
+                + skater_season_hits[name]*fantasy_points_hits
+                + skater_season_blockedShots[name]*fantasy_points_blocks
+                + skater_season_totalFaceoffWins[name]*fantasy_points_fowins
+                + skater_season_totalFaceoffLosses[name]*fantasy_points_folosses
+                + skater_season_penaltyMinutes[name]*fantasy_points_pims
+                )
+            skater_names_fantasy_points_per_game[name] = round(skater_names_tot_fantasy_points[name]/skater_season_gamesPlayed[name], 2)
+
+            # get stats per game
+            skater_season_goals_per_game[name] = round(skater_season_goals[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_assists_per_game[name] = round(skater_season_assists[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_plusMinus_per_game[name] = round(skater_season_plusMinus[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_ppGoals_per_game[name] = round(skater_season_ppGoals[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_ppAssists_per_game[name] = round(skater_season_ppAssists[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_shGoals_per_game[name] = round(skater_season_shGoals[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_shAssists_per_game[name] = round(skater_season_shAssists[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_gameWinningGoals_per_game[name] = round(skater_season_gameWinningGoals[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_shots_per_game[name] = round(skater_season_shots[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_hits_per_game[name] = round(skater_season_hits[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_blockedShots_per_game[name] = round(skater_season_blockedShots[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_totalFaceoffWins_per_game[name] = round(skater_season_totalFaceoffWins[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_totalFaceoffLosses_per_game[name] = round(skater_season_totalFaceoffLosses[name]/skater_season_gamesPlayed[name], 2)
+            skater_season_penaltyMinutes_per_game[name] = round(skater_season_penaltyMinutes[name]/skater_season_gamesPlayed[name], 2)
+
+            # get stats per 60 minutes
+            skater_season_goals_per_60min[name] = round(60.*skater_season_goals_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_assists_per_60min[name] = round(60.*skater_season_assists_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_plusMinus_per_60min[name] = round(60.*skater_season_plusMinus_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_ppGoals_per_60min[name] = round(60.*skater_season_ppGoals_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_ppAssists_per_60min[name] = round(60.*skater_season_ppAssists_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_shGoals_per_60min[name] = round(60.*skater_season_shGoals_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_shAssists_per_60min[name] = round(60.*skater_season_shAssists_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_gameWinningGoals_per_60min[name] = round(60.*skater_season_gameWinningGoals_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_shots_per_60min[name] = round(60.*skater_season_shots_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_hits_per_60min[name] = round(60.*skater_season_hits_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_blockedShots_per_60min[name] = round(60.*skater_season_blockedShots_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_totalFaceoffWins_per_60min[name] = round(60.*skater_season_totalFaceoffWins_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_totalFaceoffLosses_per_60min[name] = round(60.*skater_season_totalFaceoffLosses_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+            skater_season_penaltyMinutes_per_60min[name] = round(60.*skater_season_penaltyMinutes_per_game[name]/skater_season_timeOnIcePerGame_min[name], 2)
+
+    skater_names_grabbed.insert(0, "Stat")
+
+    fp_table_headers = [
+        f"\033[1m{skater_names_grabbed[i]}\033[0m" for i in range(len(skater_names_grabbed))
+    ]
+
+    # Initialize PrettyTable with the dynamic headers
+    fp_table = PrettyTable(fp_table_headers)
+    fp_table.title = "\033[1mPlayer Fantasy Comparison\033[0m"
+
+    table_fantasy_points_total = format_table_stats(skater_names_tot_fantasy_points, "Total Fantasy Points")
+    fp_table.add_row(table_fantasy_points_total)
+
+    table_fantasy_points_total = format_table_stats(skater_names_fantasy_points_per_game, "# of Fantasy Points per Game")
+    fp_table.add_row(table_fantasy_points_total)
+
+    print(fp_table)
+
+
+    stats_headers = [
+    f"\033[1m{skater_names_grabbed[i]}\033[0m" for i in range(len(skater_names_grabbed))
+]
+
+    # Initialize PrettyTable with the dynamic headers
+    stats_table = PrettyTable(stats_headers)
+    stats_table.title = "\033[1mPlayer Stats Comparison\033[0m"
+
+    # games played
+    table_season_games_played_total = format_table_stats(skater_season_gamesPlayed, "Games Played")
+    stats_table.add_row(table_season_games_played_total)
+    # average TOI
+    table_season_toi_per_game = format_table_stats(skater_season_timeOnIcePerGame_min, "Average TOI")
+    stats_table.add_row(table_season_toi_per_game)
+    # goals
+    stats_table.add_divider()
+    table_season_goals_total = format_table_stats(skater_season_goals, "Total Goals")
+    stats_table.add_row(table_season_goals_total)
+    table_season_goals_per_game = format_table_stats(skater_season_goals_per_game, "# of Goals per Game")
+    stats_table.add_row(table_season_goals_per_game)
+    table_season_goals_per_60min = format_table_stats(skater_season_goals_per_60min, "# of Goals per 60 minutes")
+    stats_table.add_row(table_season_goals_per_60min)
+    # assists
+    stats_table.add_divider()
+    table_season_assists_total = format_table_stats(skater_season_assists, "Total Assists")
+    stats_table.add_row(table_season_assists_total)
+    table_season_assists_per_game = format_table_stats(skater_season_assists_per_game, "# of Assists per Game")
+    stats_table.add_row(table_season_assists_per_game)
+    table_season_assists_per_60min = format_table_stats(skater_season_assists_per_60min, "# of Assists per 60 minutes")
+    stats_table.add_row(table_season_assists_per_60min)
+    # +/-
+    stats_table.add_divider()
+    table_season_plusMinus_total = format_table_stats(skater_season_plusMinus, "Season +/-")
+    stats_table.add_row(table_season_plusMinus_total)
+    table_season_plusMinus_per_game = format_table_stats(skater_season_plusMinus_per_game, "Average +/- per Game")
+    stats_table.add_row(table_season_plusMinus_per_game)
+    table_season_plusMinus_per_60min = format_table_stats(skater_season_plusMinus_per_60min, "Average +/- per 60 minutes")
+    stats_table.add_row(table_season_plusMinus_per_60min)
+    # PP Goals
+    stats_table.add_divider()
+    table_season_ppGoals_total = format_table_stats(skater_season_ppGoals, "Season PP Goals")
+    stats_table.add_row(table_season_ppGoals_total)
+    table_season_ppGoals_per_game = format_table_stats(skater_season_ppGoals_per_game, "Average PP Goals per Game")
+    stats_table.add_row(table_season_ppGoals_per_game)
+    table_season_ppGoals_per_60min = format_table_stats(skater_season_ppGoals_per_60min, "Average # of PP Goals per 60 minutes")
+    stats_table.add_row(table_season_ppGoals_per_60min)
+    # PP Assists
+    stats_table.add_divider()
+    table_season_ppAssists_total = format_table_stats(skater_season_ppAssists, "Season PP Assists")
+    stats_table.add_row(table_season_ppAssists_total)
+    table_season_ppAssists_per_game = format_table_stats(skater_season_ppAssists_per_game, "Average PP Assists per Game")
+    stats_table.add_row(table_season_ppAssists_per_game)
+    table_season_ppAssists_per_60min = format_table_stats(skater_season_ppAssists_per_60min, "Average # of PP Assists per 60 minutes")
+    stats_table.add_row(table_season_ppAssists_per_60min)
+    # SH Goals
+    stats_table.add_divider()
+    table_season_shGoals_total = format_table_stats(skater_season_shGoals, "Season SH Goals")
+    stats_table.add_row(table_season_shGoals_total)
+    table_season_shGoals_per_game = format_table_stats(skater_season_shGoals_per_game, "Average SH Goals per Game")
+    stats_table.add_row(table_season_shGoals_per_game)
+    table_season_shGoals_per_60min = format_table_stats(skater_season_shGoals_per_60min, "# of SH Goals per 60 minutes")
+    stats_table.add_row(table_season_shGoals_per_60min)
+    # SH Assists
+    stats_table.add_divider()
+    table_season_shAssists_total = format_table_stats(skater_season_shAssists, "Season SH Assists")
+    stats_table.add_row(table_season_shAssists_total)
+    table_season_shAssists_per_game = format_table_stats(skater_season_shAssists_per_game, "Average SH Assists per Game")
+    stats_table.add_row(table_season_shAssists_per_game)
+    table_season_shAssists_per_60min = format_table_stats(skater_season_shAssists_per_60min, "Average # of SH Assists per 60 minutes")
+    stats_table.add_row(table_season_shAssists_per_60min)
+    # Game Winning Goals
+    stats_table.add_divider()
+    table_season_gameWinningGoals_total = format_table_stats(skater_season_gameWinningGoals, "Season Game Winning Goals")
+    stats_table.add_row(table_season_gameWinningGoals_total)
+    table_season_gameWinningGoals_per_game = format_table_stats(skater_season_gameWinningGoals_per_game, "Average # of Game Winning Goals per Game")
+    stats_table.add_row(table_season_gameWinningGoals_per_game)
+    table_season_gameWinningGoals_per_60min = format_table_stats(skater_season_gameWinningGoals_per_60min, "Average # of Game Winning Goals per 60 minutes")
+    stats_table.add_row(table_season_gameWinningGoals_per_60min)
+    # Shots
+    stats_table.add_divider()
+    table_season_shots_total = format_table_stats(skater_season_shots, "Season Shots")
+    stats_table.add_row(table_season_shots_total)
+    table_season_shots_per_game = format_table_stats(skater_season_shots_per_game, "Average # of Shots per Game")
+    stats_table.add_row(table_season_shots_per_game)
+    table_season_shots_per_60min = format_table_stats(skater_season_shots_per_60min, "Average # of Shots per 60 minutes")
+    stats_table.add_row(table_season_shots_per_60min)
+    # Hits
+    stats_table.add_divider()
+    table_season_hits_total = format_table_stats(skater_season_hits, "Season Hits")
+    stats_table.add_row(table_season_hits_total)
+    table_season_hits_per_game = format_table_stats(skater_season_hits_per_game, "Average # of Hits per Game")
+    stats_table.add_row(table_season_hits_per_game)
+    table_season_hits_per_60min = format_table_stats(skater_season_hits_per_60min, "Average # of Hits per 60 minutes")
+    stats_table.add_row(table_season_hits_per_60min)
+    # Blocked Shots
+    stats_table.add_divider()
+    table_season_blockedShots_total = format_table_stats(skater_season_blockedShots, "Season Blocked Shots")
+    stats_table.add_row(table_season_blockedShots_total)
+    table_season_blockedShots_per_game = format_table_stats(skater_season_blockedShots_per_game, "Average # of Blocked Shots per Game")
+    stats_table.add_row(table_season_blockedShots_per_game)
+    table_season_blockedShots_per_60min = format_table_stats(skater_season_blockedShots_per_60min, "Average # of Blocked Shots per 60 minutes")
+    stats_table.add_row(table_season_blockedShots_per_60min)
+    # FO Wins
+    stats_table.add_divider()
+    table_season_totalFaceoffWins_total = format_table_stats(skater_season_totalFaceoffWins, "Season FO Wins")
+    stats_table.add_row(table_season_totalFaceoffWins_total)
+    table_season_totalFaceoffWins_per_game = format_table_stats(skater_season_totalFaceoffWins_per_game, "Average # of FO Wins per Game")
+    stats_table.add_row(table_season_totalFaceoffWins_per_game)
+    table_season_totalFaceoffWins_per_60min = format_table_stats(skater_season_totalFaceoffWins_per_60min, "Average # of FO Wins per 60 minutes")
+    stats_table.add_row(table_season_totalFaceoffWins_per_60min)
+    # FO Loses
+    stats_table.add_divider()
+    table_season_totalFaceoffLosses_total = format_table_stats(skater_season_totalFaceoffLosses, "Season FO Losses")
+    stats_table.add_row(table_season_totalFaceoffLosses_total)
+    table_season_totalFaceoffLosses_per_game = format_table_stats(skater_season_totalFaceoffLosses_per_game, "Average # of FO Losses per Game")
+    stats_table.add_row(table_season_totalFaceoffLosses_per_game)
+    table_season_totalFaceoffLosses_per_60min = format_table_stats(skater_season_totalFaceoffLosses_per_60min, "Average # of FO Losses per 60 minutes")
+    stats_table.add_row(table_season_totalFaceoffLosses_per_60min)
+    # PIMs
+    stats_table.add_divider()
+    table_season_penaltyMinutes_total = format_table_stats(skater_season_penaltyMinutes, "Season PIMs")
+    stats_table.add_row(table_season_penaltyMinutes_total)
+    table_season_penaltyMinutes_per_game = format_table_stats(skater_season_penaltyMinutes_per_game, "Average # of PIMs per Game")
+    stats_table.add_row(table_season_penaltyMinutes_per_game)
+    table_season_penaltyMinutes_per_60min = format_table_stats(skater_season_penaltyMinutes_per_60min, "Average # of PIMs per 60 minutes")
+    stats_table.add_row(table_season_penaltyMinutes_per_60min)
+
+    print(stats_table)
 
 
 def get_stats_by_season(player_id, path_to_team_images):

@@ -83,7 +83,7 @@ for team in teams:
                 player_id = player["id"]
 
 
-player_game_stats = client.stats.player_game_log(player_id=player_id, season_id=season, game_type="2")
+player_game_stats = client.stats.player_game_log(player_id=player_id, season_id=season, game_type="2")#, report_type="summary")
 
 df_player_game_stats = pd.DataFrame(data=player_game_stats)
 
