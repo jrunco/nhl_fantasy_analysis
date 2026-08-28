@@ -9,6 +9,7 @@ import pandas as pd
 import torch
 
 TARGET = "is_goal"
+NET_HALF_WIDTH = 3.0  # goal mouth is 6 ft wide, posts at y = +/-3
 LEAKY = ["event_type"]  # 'goal' vs 'shot-on-goal'/'missed-shot' encodes the outcome
 DUPES = ["shooter_name", "goalie_name", "time_in_period", "season"]
 CATS = ["home_team", "away_team", "shooting_team", "opponent_team", "venue",
@@ -19,13 +20,36 @@ LOGGED = ["seconds_since_prev"]  # heavy right tail; see notebook histogram
 
 def model_frame(shots):
     """Raw shot rows -> modeling frame: drop leak/dupes, game_date -> day-of-season
-    ordinal, categoricals cast to pandas Categorical. Keeps every other column."""
+    ordinal, add goal-mouth geometry, categoricals cast to pandas Categorical. Keeps every
+    other column."""
     df = shots.drop(columns=[c for c in LEAKY + DUPES if c in shots]).copy()
     dates = pd.to_datetime(df["game_date"])
     df["day_of_season"] = (dates - dates.min()).dt.days
     df = df.drop(columns=["game_date"])
+    df = add_geometry(df)
     for c in CATS:
         df[c] = pd.Categorical(df[c])
+    return df
+
+
+def add_geometry(df):
+    """Add `aperture`: the angular width (radians) of the goal mouth as seen from the shot,
+    signed by which side of the goal-line plane the shooter is on.
+
+        aperture = 2*arctan(3/distance) * cos(angle)
+
+    `shot_distance` alone can't express "behind the net" — it is built from hypot(), which
+    discards the sign of the goal-line offset, so a shot 6 ft *behind* the net and a 6 ft
+    tap-in from the slot are the same number. `shot_angle` keeps the sign (atan2 against a
+    negative offset puts behind-the-line shots above 90 deg), so cos(angle) recovers it:
+    +1 straight on, exactly 0 on the goal line extended (edge-on: no target at all), -1
+    directly behind. Combining the two gives one scalar that is monotone in P(goal) and
+    goes negative exactly where a direct shot becomes impossible.
+
+    Distance is floored at 0.5 ft so shots recorded on the goal crease don't blow up."""
+    d = df["shot_distance"].clip(lower=0.5)
+    df = df.copy()
+    df["aperture"] = 2 * np.arctan(NET_HALF_WIDTH / d) * np.cos(np.radians(df["shot_angle"]))
     return df
 
 

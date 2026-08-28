@@ -532,7 +532,7 @@ def _extract_shot_rows(pbp):
             owner = d.get("eventOwnerTeamId")
             is_home = owner == home["id"]
             x, y = d.get("xCoord"), d.get("yCoord")
-            dist, angle = _shot_distance_angle(x, y)
+            dist, angle = _shot_distance_angle(x, y, d.get("zoneCode"))
             shooter = d.get("shootingPlayerId") or d.get("scoringPlayerId")
             strength, is_en, shooter_sk, opp_sk = _parse_situation(play.get("situationCode"), is_home)
             prev_type = prev.get("typeDescKey") if prev else None
@@ -589,12 +589,19 @@ def _extract_shot_rows(pbp):
     return rows
 
 
-def _shot_distance_angle(x, y):
-    """Distance (ft) and absolute angle (deg) to the attacking net. Shots are mirrored to
-    a single net via abs(x); angle 0 = straight on. Coordinates are raw (un-arena-adjusted)."""
+def _shot_distance_angle(x, y, zone_code=None):
+    """Distance (ft) and angle (deg) to the *attacking* net. Angle 0 = straight on;
+    angle > 90 means the shot came from behind the goal line. Coordinates are raw
+    (un-arena-adjusted).
+
+    Shots are mirrored to a single net via abs(x), which assumes the shooter is attacking
+    the near net. That holds in the offensive zone but inverts in the defensive zone: a
+    D-zone shot is ~180 ft from its target, not (89 - |x|), so zone_code 'D' is measured
+    against the far net instead. Neutral-zone shots stay mirrored — the row alone can't say
+    which side of centre the shooter is on, and |x| <= 25 bounds the error."""
     if x is None or y is None:
         return None, None
-    dx = NET_X - abs(x)
+    dx = (NET_X + abs(x)) if zone_code == "D" else (NET_X - abs(x))
     dist = math.hypot(dx, y)
     angle = math.degrees(math.atan2(abs(y), dx)) if dx != 0 else 90.0
     return round(dist, 2), round(angle, 2)
